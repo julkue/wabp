@@ -1,4 +1,4 @@
-# jmBoilerplate
+# jmBoilerplate [![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
 
 **Table of Contents**
 
