@@ -1,0 +1,30 @@
+{
+  "name": "jmBoilerplate",
+  "version": "0.1.0",
+  "keywords": [
+    "jmBoilerplate",
+    "boilerplate",
+    "html",
+	"framework",
+	"web",
+	"build",
+	"julmot"
+  ],
+  "authors": [
+    {
+      "name": "Julian Motz"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "requirejs": "~2.1",
+    "jquery": "<2.0 >1.10",
+    "angular": "~1.4",
+    "angular-route": "~1.4",
+	"angular-touch": "~1.4.5",
+    "angular-translate": "~2.7",
+    "angular-translate-loader-static-files": "~2.7",
+    "angular-ui-notification": "~0.0",
+	"fontawesome": "~4.4"
+  }
+}

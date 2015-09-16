@@ -1,0 +1,25 @@
+/******************************************************
+ * jmBoilerplate
+ * Copyright (c) 2015, Julian Motz
+ * For the full copyright and license information, 
+ * please view the LICENSE file that was distributed 
+ * with this source code.
+ *****************************************************/
+
+/**
+ * Color settings
+ */
+$appBg: #101314;
+$appColor: #ecedee;
+$appLoaderBg: #34495e;
+$appLoaderColor: #fff;
+$homeCtrlColor: $appColor;
+$homeCtrlBg: transparent;
+
+/**
+ * Typography settings
+ */
+$appFontSize: 16px;
+$appLineHeight: 120%;
+$homeCtrlFontSize: 48px;
+$homeCtrlLineHeight: $appLineHeight;

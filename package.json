@@ -1,0 +1,37 @@
+{
+  "name": "jmBoilerplate",
+  "author": "Julian Motz",
+  "version": "0.1.0",
+  "keywords": [
+    "jmBoilerplate",
+    "boilerplate",
+    "html",
+	"framework",
+	"web",
+	"build",
+	"julmot"
+  ],
+  "contributors": [
+    {
+      "name": "Julian Motz"
+    }
+  ],
+  "devDependencies": {
+    "almond": "~0.3",
+    "connect-livereload": "^0.5.3",
+    "grunt": "^0.4",
+    "grunt-banner": "^0.5",
+    "grunt-concurrent": "^2.0.3",
+    "grunt-contrib-clean": "^0.6",
+    "grunt-contrib-compass": "^1.0",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8",
+    "grunt-contrib-htmlmin": "^0.4",
+    "grunt-contrib-rename": "0.0",
+    "grunt-contrib-requirejs": "^0.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-spritesmith": "^5.0",
+    "grunt-string-replace": "^1.2",
+    "matchdep": "^0.3"
+  }
+}
