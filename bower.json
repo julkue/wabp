@@ -5,10 +5,10 @@
     "jmBoilerplate",
     "boilerplate",
     "html",
-	"framework",
-	"web",
-	"build",
-	"julmot"
+    "framework",
+    "web",
+    "build",
+    "julmot"
   ],
   "authors": [
     {
@@ -21,10 +21,10 @@
     "jquery": "<2.0 >1.10",
     "angular": "~1.4",
     "angular-route": "~1.4",
-	"angular-touch": "~1.4.5",
+    "angular-touch": "~1.4.5",
     "angular-translate": "~2.7",
     "angular-translate-loader-static-files": "~2.7",
     "angular-ui-notification": "~0.0",
-	"fontawesome": "~4.4"
+    "fontawesome": "~4.4"
   }
 }
