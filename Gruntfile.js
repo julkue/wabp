@@ -615,7 +615,7 @@ module.exports = function(grunt){
 		);
 		if(sprites){
 			// reset _sprites.scss for dev
-			grunt.task.run('sprites:dev');
+			grunt.task.run('sprite:dev');
 		}
 		grunt.task.run(
 			// generate js
