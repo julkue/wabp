@@ -37,7 +37,8 @@ NodeJS is required for the build process (Grunt) and Bower for all the dependenc
 1. Download this repository (with ``$ git clone`` or download it with click on "__Download ZIP__")
 2. In the project directory run ``$ npm install``.
 3. After that run ``$ bower install``
-4. Finally, run ``$ grunt dev``
+4. Make sure you have installed [Compass](http://compass-style.org/install/) (which requires Ruby and SASS)
+5. Finally, run ``$ grunt dev``
 
 And you are done and can start developing your application! Simply open the 
 included index.html or open your browser and type in http://localhost:8000 (if you have
@@ -183,7 +184,8 @@ To change the default livereload port (35729) call it with ``$ grunt dev --liver
 ###4.2 Production
 In production all JavaScript files will be combined and compressed in a single "app.min.js"-file. For this the
 "RequireJS Optimizer" will be used. Also it will compile your styles and generate sprites (see [Development](#41-development) how to disable it).
-Your production app will be generated with all assets, resources, js and css into "/dist/web" (will be created if it does not exist).
+Your production app will be generated with all assets, resources, js and css into "/dist" (will be created if it does not exist). On top the output will be zipped into "/dist". You can prevent this if you want with
+calling `$ grunt prod --zip=false`.
 
 ## 5. How-tos
 ### 5.1 How to configure routing

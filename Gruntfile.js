@@ -44,8 +44,9 @@ module.exports = function(grunt){
 			app: '.',
 			build: '<%= project.app %>/build',
 			dist: {
-				web: '<%= project.app %>/dist/web',
-				app: '<%= project.app %>/dist/app'
+				web: '<%= project.app %>/dist/web-v<%= pkg.version %>',
+				// for later coming hybrid app compatibility:
+				app: '<%= project.app %>/dist/app-v<%= pkg.version %>'
 			},
 			src: '<%= project.app %>/src',
 			vendor: '<%= project.app %>/vendor',
@@ -62,7 +63,7 @@ module.exports = function(grunt){
 		 */
 		clean: {
 			'build': [
-				'<%= project.build %>/*'
+				'<%= project.build %>/**/*'
 			],
 			'scss-base': [
 				'<%= project.styles %>/_base.scss'
@@ -71,8 +72,8 @@ module.exports = function(grunt){
 				'<%= project.scripts %>/config.js'
 			],
 			'dist': [
-				'<%= project.dist.web %>/',
-				'<%= project.dist.app %>/'
+				'<%= project.dist.web %>/**/*',
+				'<%= project.dist.app %>/**/*'
 			]
 		},
 		/**
@@ -473,6 +474,25 @@ module.exports = function(grunt){
 			}
 		},
 		/**
+		 * ZIP-Generator
+		 */
+		compress: {
+			prod: {
+				options: {
+					archive: '<%= project.dist.web %>.zip',
+					pretty: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: '<%= project.dist.web %>/',
+						src: ['**/*'],
+						dest: '/'
+					}
+				]
+			}
+		},
+		/**
 		 * Server settings
 		 */
 		connect: {
@@ -628,5 +648,11 @@ module.exports = function(grunt){
 			'string-replace:js-app-empty-lines',
 			'usebanner:dist'
 		);
+		// Generate zip if not prevented
+		var zip = grunt.option('zip');
+		zip = typeof zip === "undefined" || zip;
+		if(zip){
+			grunt.task.run('compress:prod');
+		}
 	});
 };
