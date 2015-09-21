@@ -64,6 +64,7 @@
 			$(global.document).ready(function(){
 				angular.bootstrap(global.document, ["app"]);
 			});
-		}
+		},
+		waitSeconds: 60 // Necessary for 2G
 	});
 })(this);
