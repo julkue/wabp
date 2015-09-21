@@ -77,6 +77,7 @@ jmBoilerplate/
 |-- bower.json
 |-- Gruntfile.js
 |-- index.html
+|-- jmBoilerplate.version
 |-- package.json
 |-- README.md
 ```
@@ -146,6 +147,10 @@ Step by step:
   - This is the build process.
 - index.html
   - The applications index file.
+- jmBoilerplate.version
+  - This file gives you information about the installed jmBoilerplate
+    version. If you want to update jmBoilerplate you can check the version inside this file
+    against the current version.
 - package.json
   - Necessary for the build process. Also it contains
     all the metadata of your project (like "bower.json"). Note: All
