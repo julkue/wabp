@@ -10,7 +10,7 @@
 		"app",
 	], function (app) {
 		"use strict";
-		app.controller("KioskCtrl", [
+		app.controller("LanguageCtrl", [
 			"$log",
 			"$translate",
 			function($log, $translate){
