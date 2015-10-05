@@ -18,6 +18,7 @@
 			"app": "app",
 			"routes": "routes",
 			"loader": "factories/loader",
+			"language": "factories/language",
 			"mediator": "services/mediator",
 			
 			"AppCtrl": "controllers/AppCtrl",
