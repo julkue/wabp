@@ -187,8 +187,8 @@ on file changes. You can also disable this feature by calling the build with ``$
 To change the default livereload port (35729) call it with ``$ grunt dev --livereloadPort=1234```.
 
 ###4.2 Production
-In production all JavaScript files will be combined and compressed in a single "app.min.js"-file. For this the
-"RequireJS Optimizer" will be used. Also it will compile your styles and generate sprites (see [Development](#41-development) how to disable it).
+In production all JavaScript files will be combined and compressed into a single "app.min.js"-file. For this the
+"RequireJS Optimizer" will be used. Also it will compile your styles into a single "app.min.css"-file and generate sprites (see [Development](#41-development) how to disable it). Also all .html-files inside the root-folder of your app will be compressed. You can prevent this with `$ grunt prod --minifyHTML=false`. If you just want to prevent the minification for a single file use `$ grunt prod --minifyHTMLIgnore=myfile.html` and `$grunt prod --minifyHTMLIgnore={myfile.html,secondFile.html}` for multiple files.
 Your production app will be generated with all assets, resources, js and css into "/dist" (will be created if it does not exist). On top the output will be zipped into "/dist". You can prevent this if you want with
 calling `$ grunt prod --zip=false`.
 
@@ -212,35 +212,6 @@ an element and assign your controller to it
     <!-- Your controller logic comes here -->
 </div>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

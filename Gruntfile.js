@@ -95,6 +95,13 @@ module.exports = function(grunt){
 						timestamp: true,
 						expand: true,
 						dest: '<%= project.dist.web %>/resources/'
+					},
+					{
+						cwd: '<%= project.app %>',
+						src: '*.html',
+						timestamp: true,
+						expand: true,
+						dest: '<%= project.dist.web %>/'
 					}
 				]
 			},
@@ -292,10 +299,13 @@ module.exports = function(grunt){
 					]
 				}
 			},
-			'index-author-copyrights': {
-				files: {
-					'<%= project.dist.web %>/index.html': '<%= project.dist.web %>/index.html'
-				},
+			'html-author-copyrights': {
+				files: [{
+					expand: true,
+					cwd: '<%= project.dist.web %>',
+					src: ['*.html'],
+					dest: '<%= project.dist.web %>/'
+				}],
 				options: {
 					replacements: [
 						{
@@ -370,10 +380,13 @@ module.exports = function(grunt){
 			 * Replace dev scripts/css files
 			 * with production files
 			 */
-			'file-references': {
-				files: {
-					'<%= project.dist.web %>/index.html': '<%= project.dist.web %>/index.html'
-				},
+			'html-file-references': {
+				files: [{
+					expand: true,
+					cwd: '<%= project.dist.web %>',
+					src: ['*.html'],
+					dest: '<%= project.dist.web %>/'
+				}],
 				options: {
 					replacements: [
 						{
@@ -462,15 +475,20 @@ module.exports = function(grunt){
 		 * HTML compression
 		 */
 		htmlmin: {
-			'dist-index': {
+			dist: {
 				options: {
 					//removeComments: true, // this would remove the copyright notice too
 					collapseWhitespace: true,
-					processScripts: ["text/ng-template"]
+					processScripts: ["text/ng-template"],
+					minifyCSS: true,
+					minifyJS: true
 				},
-				files: {
-					'<%= project.dist.web %>/index.html': '<%= project.app %>/index.html'
-				}
+				files: [{
+					expand: true,
+					cwd: '<%= project.dist.web %>',
+					src: ['*.html', '!' + grunt.option('minifyHTMLIgnore') || ''],
+					dest: '<%= project.dist.web %>/'
+				}]
 			}
 		},
 		/**
@@ -526,7 +544,7 @@ module.exports = function(grunt){
 					'<%= project.scripts %>/**/*',
 					'<%= project.resources %>/**/*',
 					'<%= project.vendor %>/**/*',
-					'<%= project.app %>/index.html'
+					'<%= project.app %>/*.html'
 				],
 				options: {
 					livereload: grunt.option('livereloadPort') || true
@@ -612,33 +630,47 @@ module.exports = function(grunt){
 		grunt.task.run(
 			'clean:dist'
 		);
+		
 		// Create Sprites if not prevented
 		var sprites = grunt.option('sprites');
 		sprites = typeof sprites === "undefined" || sprites;
 		if(sprites){
 			grunt.task.run('sprite:prod');
 		}
+		
+		grunt.task.run('copy:dist-resources');
+		
+		// Minify HTML if not prevented
+		var minifyHTML = grunt.option('minifyHTML');
+		minifyHTML = typeof minifyHTML === "undefined" || minifyHTML;
+		if(minifyHTML){
+			grunt.task.run(
+				'htmlmin:dist'
+			);
+		}
+		
+		// Replace file references and copyrights in HTML
 		grunt.task.run(
-			// copy dist resources
-			// copy and minify html
-			// modify references in hmtl
-			'copy:dist-resources',
-			'htmlmin:dist-index',
-			'string-replace:file-references',
-			'string-replace:index-author-copyrights',
-			// generate css
+			'string-replace:html-file-references',
+			'string-replace:html-author-copyrights'
+		);
+		
+		// Generate CSS
+		grunt.task.run(
 			'copy:scss-base',
 			'string-replace:css-imports',
 			'compass:prod',
 			'clean:scss-base',
 			'rename:scss-base'
 		);
+		
+		// Reset _sprites.scss for dev
 		if(sprites){
-			// reset _sprites.scss for dev
 			grunt.task.run('sprite:dev');
 		}
+		
+		// Generate JS
 		grunt.task.run(
-			// generate js
 			'copy:js-config',
 			'string-replace:js-config',
 			'requirejs:prod',
@@ -648,6 +680,7 @@ module.exports = function(grunt){
 			'string-replace:js-app-empty-lines',
 			'usebanner:dist'
 		);
+		
 		// Generate zip if not prevented
 		var zip = grunt.option('zip');
 		zip = typeof zip === "undefined" || zip;
