@@ -95,7 +95,9 @@
 								title: routes[i]["title"]
 							});
 						if(routes[i]["primaryRoute"] == true){
-							primaryRoute = routes[i]["route"];
+							// set the primary route, but remove parameters
+							// from it since they would not have any value
+							primaryRoute = routes[i]["route"].replace(/\/:[^]+/gmi, '');
 						}
 					}
 					$routeProvider.otherwise({redirectTo: '/404'});
