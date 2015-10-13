@@ -469,6 +469,25 @@ module.exports = function(grunt){
 						}
 					]
 				}
+			},
+			/**
+			 * Version update
+			 */
+			'version-update': {
+				files: [{
+					expand: true,
+					cwd: '<%= project.app %>/',
+					src: ['package.json', 'bower.json', 'test.txt'],
+					dest: '<%= project.app %>/'
+				}],
+				options: {
+					replacements: [
+						{
+							pattern: /("version":[\s]*")[^]*?(")/gmi,
+							replacement: '$1' + grunt.option('target') + '$2'
+						}
+					]
+				}
 			}
 		},
 		/**
@@ -687,5 +706,21 @@ module.exports = function(grunt){
 		if(zip){
 			grunt.task.run('compress:prod');
 		}
+	});
+	
+	/**
+	 * Version update task
+	 */
+	grunt.registerTask('version-update', 'Version update', function(){
+		grunt.log.subhead(grunt.config().banner);
+		
+		var ver = grunt.option('target');
+		if(typeof ver === 'string' && ver != ''){
+			grunt.log.subhead('Updating to version: "' + ver + "'");
+			grunt.task.run('string-replace:version-update');
+		} else {
+			grunt.log.error('You need to provide a version ("target")');
+		}
+		
 	});
 };
