@@ -19,7 +19,7 @@ jmBoilerplate is an HTML5 framework that includes all the functionalities a web 
  - Modular JavaScript architecture with dependency management (RequireJS, Bower)
  - AngularJS including frequently used services like routing, translation, configuration, mediator (can be deactivated)
  - A build process for development and production including:
-     - Optimizing and minification of your JavaScript
+     - Optimization and minification of your JavaScript
 	 - Compiling your SCSS styles (with Compass) including needed vendor libraries loaded with Bower
 	 - HTML-code minification
 	 - Sprites generation, to reduce the amount of image-requests
@@ -27,7 +27,7 @@ jmBoilerplate is an HTML5 framework that includes all the functionalities a web 
 	 - Fontawesome is used as a loading spinner if the route changes
 	 - ui-notification is used when the app crashes and a unhandled exception is thrown.
 	   It will be shown to the user. But ui-notification can also be used to show
-	   custom messages from inside your controller
+	   custom messages from inside your controllers or directives
 	
 ## 2. Getting started
 Requirements for development: NodeJS with npm and Bower installed.
