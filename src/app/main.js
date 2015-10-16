@@ -22,7 +22,6 @@
 			"mediator": "services/mediator",
 			
 			"AppCtrl": "controllers/AppCtrl",
-			"LanguageCtrl": "controllers/LanguageCtrl",
 			"HomeCtrl": "controllers/HomeCtrl",
 			
 			// External
@@ -57,7 +56,6 @@
 			// not get loaded by the app, but from angularjs
 			// which is not requirejs-implemented
 			"AppCtrl",
-			"LanguageCtrl",
 			"HomeCtrl"
 		],
 		callback: function(){
