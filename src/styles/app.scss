@@ -65,6 +65,15 @@ body{
 	}
 	
 	/**
+	 * Browser fallback
+	 * (will contain the error message if the user is using a 
+	 *  unsupported browser)
+	 */
+	#browserFallback{
+		display:none;
+	}
+	
+	/**
 	 * Home controller
 	 * and styles if a route
 	 * does not exist

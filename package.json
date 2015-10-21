@@ -1,7 +1,7 @@
 {
   "name": "jmBoilerplate",
   "author": "Julian Motz",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "keywords": [
     "jmBoilerplate",
     "boilerplate",
@@ -9,7 +9,9 @@
     "framework",
     "web",
     "build",
-    "julmot"
+    "julmot",
+    "angularjs",
+    "ng"
   ],
   "contributors": [
     {
@@ -24,15 +26,44 @@
     "grunt-concurrent": "^2.0.3",
     "grunt-contrib-clean": "^0.6",
     "grunt-contrib-compass": "^1.0",
-    "grunt-contrib-connect": "^0.11.2",
     "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-connect": "^0.11.2",
     "grunt-contrib-copy": "^0.8",
     "grunt-contrib-htmlmin": "^0.4",
     "grunt-contrib-rename": "0.0",
     "grunt-contrib-requirejs": "^0.4",
+    "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-spritesmith": "^5.0",
     "grunt-string-replace": "^1.2",
-    "matchdep": "^1.0"
+    "matchdep": "^0.3"
+  },
+  "supportedBrowsers": {
+    "IE": {
+      "version": {
+        "from": 9,
+        "till": 11
+      }
+    },
+    "Firefox": {
+      "version": {
+        "from": 41
+      }
+    },
+    "Chrome": {
+      "version": {
+        "from": 46
+      }
+    },
+    "Safari": {
+      "version": {
+        "from": 8
+      }
+    },
+    "Mobile Safari": {
+      "version": {
+        "from": 8
+      }
+    }
   }
 }

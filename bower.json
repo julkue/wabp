@@ -1,6 +1,6 @@
 {
   "name": "jmBoilerplate",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "keywords": [
     "jmBoilerplate",
     "boilerplate",
@@ -8,7 +8,9 @@
     "framework",
     "web",
     "build",
-    "julmot"
+    "julmot",
+    "angularjs",
+    "ng"
   ],
   "authors": [
     {
@@ -24,6 +26,7 @@
     "angular-translate": "~2.7",
     "angular-translate-loader-static-files": "~2.7",
     "angular-ui-notification": "~0.0",
-    "fontawesome": "~4.4"
+    "fontawesome": "~4.4",
+    "darcyclarke-detectjs": "*"
   }
 }

@@ -56,7 +56,8 @@ module.exports = function(grunt){
 			images: '<%= project.assets %>/images',
 			fonts: '<%= project.assets %>/fonts',
 			styles: '<%= project.src %>/styles',
-			almond: '<%= project.app %>/node_modules/almond/almond'
+			almond: '<%= project.app %>/node_modules/almond/almond',
+			detectjs: '<%= project.vendor %>/darcyclarke-detectjs/detect.js'
 		},
 		/**
 		 * Cleaning
@@ -120,6 +121,15 @@ module.exports = function(grunt){
 						mode: true,
 						src: '<%= project.scripts %>/config.js',
 						dest: '<%= project.scripts %>/config.js.bak'
+					}
+				]
+			},
+			'js-fallback': {
+				files: [
+					{
+						mode: true,
+						src: '<%= project.scripts %>/fallback.js',
+						dest: '<%= project.dist.web %>/js/fallback.js'
 					}
 				]
 			}
@@ -214,6 +224,17 @@ module.exports = function(grunt){
 				}
 			}
 		},
+		uglify: {
+			'js-fallback': {
+				options: {
+					compress: true,
+					preserveComments: 'some'
+				},
+				files: {
+					'<%= project.dist.web %>/js/fallback.js': ['<%= project.dist.web %>/js/fallback.js']
+				}
+			}
+		},
 		/**
 		 * Image sprites generation
 		 */
@@ -263,8 +284,8 @@ module.exports = function(grunt){
 				},
 				files: {
 					src: [
-						'<%= project.dist.web %>/js/app.min.js',
-						'<%= project.dist.web %>/css/app.min.css'
+						'<%= project.dist.web %>/js/*.js',
+						'<%= project.dist.web %>/css/*.css'
 					]
 				}
 			}
@@ -278,18 +299,28 @@ module.exports = function(grunt){
 			 * (it will be shown only the banner)
 			 */
 			'js-app-author-copyrights': {
-				files: {
-					'<%= project.dist.web %>/js/app.min.js': '<%= project.dist.web %>/js/app.min.js'
-				},
+				files: [{
+					expand: true,
+					cwd: '<%= project.dist.web %>/js/',
+					src: ['**/*.js'],
+					dest: '<%= project.dist.web %>/js/'
+				}],
 				options: {
 					replacements: [
 						{
 							pattern: /(\/\*([\s\S]*?)\*\/|\/\/(.*)$)/gmi,
 							replacement: function(match, comment, content){
 								var author = grunt.config().pkg.author;
-								if(typeof content === "string"
-									&& content.indexOf('Copyright') > -1
-									&& content.indexOf(author) > -1){
+								if(typeof content !== "string"){
+									return comment;
+								}
+								content = content.toLowerCase();
+								if(content.indexOf(author.toLowerCase()) > -1 &&
+									(
+										content.indexOf('copyright') > -1 ||
+										content.indexOf('license') > -1
+									)
+								){
 									return '';
 								} else {
 									return comment;
@@ -313,9 +344,16 @@ module.exports = function(grunt){
 							replacement: function(match, comment, content){
 								var cfg = grunt.config();
 								var author = cfg.pkg.author;
-								if(typeof content === "string"
-									&& content.indexOf('Copyright') > -1
-									&& content.indexOf(author) > -1){
+								if(typeof content !== "string"){
+									return comment;
+								}
+								content = content.toLowerCase();
+								if(content.indexOf(author.toLowerCase()) > -1 &&
+									(
+										content.indexOf('copyright') > -1 ||
+										content.indexOf('license') > -1
+									)
+								){
 									return cfg.banner;
 								} else {
 									return comment;
@@ -371,6 +409,46 @@ module.exports = function(grunt){
 						{
 							pattern: /var[\s]+?CSS_PATH[\s]+?=[\s]+?\"[^]*?\";/gmi,
 							replacement: 'var CSS_PATH = "css";'
+						}
+					]
+				}
+			},
+			'js-fallback': {
+				files: [{
+					expand: true,
+					cwd: '<%= project.dist.web %>',
+					src: ['*.html', '**/fallback.js'],
+					dest: '<%= project.dist.web %>/'
+				}],
+				options: {
+					replacements: [
+						{
+							pattern: /(var supportedBrowsers[\s]+?=[\s]+?){}(;)/gmi,
+							replacement: function(match, group1, group2){
+								var cfg = grunt.config();
+								if(typeof cfg["pkg"]["supportedBrowsers"] === "undefined"){
+									return match;
+								}
+								var browsers = JSON.stringify(cfg["pkg"]["supportedBrowsers"]);
+								return group1 + browsers + group2;
+							}
+						},
+						{
+							pattern: /(<script type="text\/javascript" src=".\/js\/app.min.js"><\/script>)/gmi,
+							replacement: '<script type="text/javascript" src="./js/fallback.js"></script>$1'
+						},
+						{
+							pattern: /\/\/[\s]+?detect.js[^\n]*/gmi,
+							replacement: function(match){
+								var cfg = grunt.config();
+								if(typeof cfg["project"]["detectjs"] === "string"){
+									var fc = grunt.file.read(cfg["project"]["detectjs"]);
+									if(typeof fc === "string"){
+										return grunt.file.read(cfg["project"]["detectjs"]);
+									}
+								}
+								return match;
+							}
 						}
 					]
 				}
@@ -686,6 +764,16 @@ module.exports = function(grunt){
 		// Reset _sprites.scss for dev
 		if(sprites){
 			grunt.task.run('sprite:dev');
+		}
+		
+		// Generate browser fallback 
+		var cfg = grunt.config();
+		if(typeof cfg['pkg']['supportedBrowsers'] === "object"){
+			grunt.task.run(
+				'copy:js-fallback',
+				'string-replace:js-fallback',
+				'uglify:js-fallback'
+			);
 		}
 		
 		// Generate JS

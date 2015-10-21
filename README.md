@@ -193,6 +193,17 @@ In production all JavaScript files will be combined and compressed into a single
 Your production app will be generated with all assets, resources, js and css into "/dist" (will be created if it does not exist). On top the output will be zipped into "/dist". You can prevent this if you want with
 calling `$ grunt prod --zip=false`.
 
+In case you have a limited list of supported browsers for your application you can define this list in the
+package.json file (have a look into it in this repository). If you have defined it a file "fallback.js" will be created in the output of your
+production build. This file will check the user agent against the list of supported browsers
+and will show a system dialog with your custom error message if it does not match. The error message
+should be available in an element with id `browserFallback`, e.g. `div`. All `<br>`-tags will be
+converted to javascript linebreaks for the alert window. 
+If you don't need this functionality you can delete the `supportedBrowsers` element in the `package.json`, the `fallback.js` file from within `src/app` and
+the `detectjs`-dependency inside `bower.json`.
+This feature was built to give the user the information wheter the 
+application was optimized for his browser or not.
+
 ###4.3 Version-update
 If you want to update the version of your app you can simply call `$ grunt version-update --target=YourVersion`. This will
 change the version in bower.json and package.json.
