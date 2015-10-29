@@ -36,11 +36,7 @@
 				}
 			},
 			// Module-based
-			"AppCtrl": {
-				"selectors": {
-					"scrollbar": ".scrollbar"
-				}
-			}
+			// ...
 		};
 	});
 })(this);
