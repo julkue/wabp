@@ -474,6 +474,11 @@ module.exports = function(grunt){
 						{
 							pattern: /<link[^>]+?href=\"[^><]+?app\.css\"[^]+?/gmi,
 							replacement: '<link rel="stylesheet" type="text/css" href="./css/app.min.css">'
+						},
+						// Resources
+						{
+							pattern: "src/resources/",
+							replacement: "resources/"
 						}
 					]
 				}
