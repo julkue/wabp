@@ -12,6 +12,7 @@
 5. [How-tos](#5-how-tos)
    1. [How to configure routing](#51-how-to-configure-routing)
    2. [How to create a controller](#52-how-to-create-a-controller)
+   3. [How to use this boilerplate without angularjs](#53-how-to-use-this-boilerplate-without-angularjs)
 
 
 ## 1. What's inside
@@ -229,8 +230,17 @@ an element and assign your controller to it
 </div>
 ```
 
-
-
+### 5.3 How to use this boilerplate without AngularJS
+1. In your "bower.json" remove all dependencies that start with "angular".
+2. In "src/app" remove all subfolders like "controllers", "factories" and remove the files "routes.js", "config.js".
+3. Open the "app.js" and remove everything inside.
+4. Open "main.js" and remove all angular-dependencies from shim-object. Also make
+   sure that you have removed all controllers, factories and angular-libs from paths-object.
+   In "deps" just leave the "app". And last but not least remove the callback-object.
+5. In "index.html" remove all AngularJS things.
+6. In "src/app/styles/base.scss" make sure to remove the angular vendor css imports.
+7. You are done! Your build will now work as usual, you can still use requirejs in JS
+   but you are not using AngularJS.
 
 
 
