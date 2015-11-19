@@ -409,6 +409,10 @@ module.exports = function(grunt){
 						{
 							pattern: /var[\s]+?CSS_PATH[\s]+?=[\s]+?\"[^]*?\";/gmi,
 							replacement: 'var CSS_PATH = "css";'
+						},
+						{
+							pattern: /var[\s]+?JS_PATH[\s]+?=[\s]+?\"[^]*?\";/gmi,
+							replacement: 'var JS_PATH = "js";'
 						}
 					]
 				}

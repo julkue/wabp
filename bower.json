@@ -1,6 +1,7 @@
 {
   "name": "jmBoilerplate",
-  "version": "0.4.0",
+  "version": "0.4.1",
+  "license": "MIT",
   "keywords": [
     "jmBoilerplate",
     "boilerplate",
@@ -12,6 +13,10 @@
     "angularjs",
     "ng"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/julmot/jmBoilerplate.git"
+  },
   "authors": [
     {
       "name": "Julian Motz"

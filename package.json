@@ -1,7 +1,7 @@
 {
   "name": "jmBoilerplate",
   "author": "Julian Motz",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "keywords": [
     "jmBoilerplate",
     "boilerplate",
@@ -13,6 +13,8 @@
     "angularjs",
     "ng"
   ],
+  "license": "MIT",
+  "repository": "julmot/jmBoilerplate",
   "contributors": [
     {
       "name": "Julian Motz"

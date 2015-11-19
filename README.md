@@ -1,50 +1,50 @@
-# jmBoilerplate [![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
+```
+       _           ____        _ __                __      __     
+      (_)___ ___  / __ )____  (_) /__  _________  / /___ _/ /____ 
+     / / __ `__ \/ __  / __ \/ / / _ \/ ___/ __ \/ / __ `/ __/ _ \
+    / / / / / / / /_/ / /_/ / / /  __/ /  / /_/ / / /_/ / /_/  __/
+ __/ /_/ /_/ /_/_____/\____/_/_/\___/_/  / .___/_/\__,_/\__/\___/ 
+/___/                                   /_/                       
+```
 
-**Table of Contents**
+[![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
+[![Build Status](https://travis-ci.org/julmot/jmBoilerplate.svg?branch=master)](https://travis-ci.org/julmot/jmBoilerplate)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/julmot/jmBoilerplate.svg)](http://isitmaintained.com/project/julmot/jmBoilerplate "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/julmot/jmBoilerplate.svg)](http://isitmaintained.com/project/julmot/jmBoilerplate "Average time to resolve an issue")
 
-1. [What's inside](#1-whats-inside)
-2. [Getting started](#2-getting-started)
-3. [Project structure](#3-project-structure)
-4. [Build](#4-build)
-   1. [Development](#41-development)
-   2. [Production](#42-production)
-   3. [Version update](#43-version-update)
-5. [How-tos](#5-how-tos)
-   1. [How to configure routing](#51-how-to-configure-routing)
-   2. [How to create a controller](#52-how-to-create-a-controller)
-   3. [How to use this boilerplate without angularjs](#53-how-to-use-this-boilerplate-without-angularjs)
+**A kickstarter boilerplate for web projects.**
 
+## 1. Features
 
-## 1. What's inside
-jmBoilerplate is an HTML5 framework that includes all the functionalities a web project needs so you can concentrate on the actual functionality and design of your app. It includes:
- - Modular JavaScript architecture with dependency management (RequireJS, Bower)
- - AngularJS including frequently used services like routing, translation, configuration, mediator (can be deactivated)
- - A build process for development and production including:
-     - Optimization and minification of your JavaScript
-	 - Compiling your SCSS styles (with Compass) including needed vendor libraries loaded with Bower
-	 - HTML-code minification
-	 - Sprites generation, to reduce the amount of image-requests
- - Also it comes with Fontawesome and angular ui-notification (both can be deactivated).
-	 - Fontawesome is used as a loading spinner if the route changes
-	 - ui-notification is used when the app crashes and a unhandled exception is thrown.
-	   It will be shown to the user. But ui-notification can also be used to show
-	   custom messages from inside your controllers or directives
-	
-## 2. Getting started
-Requirements for development: NodeJS with npm and Bower installed.
-NodeJS is required for the build process (Grunt) and Bower for all the dependencies your application needs (like jQuery, AngularJS, ...)
+- HTML5 ready
+- Predefined project structure for scalable web applications
+- Modular JavaScript architecture with dependency management (RequireJS, Bower)
+- Optionally including AngularJS with frequently used services like routing, translation, configuration, mediator
+- Builds for development and production
+  - Including local server and livereload
+  - SCSS/Compass compilation and minification
+  - Sprite generation (including retina alternatives)
+  - HTML minification
+  - ZIP generation
+  - Optionally including a fallback message for unsupported browsers
+ - Also it includes Fontawesome used as loading spinner
+ - Simply to setup optional components like Bootstrap or Foundation
 
-**Instructions**
+## 2. Quickstart
+_Requirements for development: [NodeJS](https://nodejs.org/) including npm and [Bower](http://bower.io/#install-bower) as well as [Compass](http://compass-style.org/install/) installed._
 
-1. Download this repository (with ``$ git clone`` or download it with click on "__Download ZIP__")
-2. In the project directory run ``$ npm install``.
+1. Download this repository using one of these options:
+   - Run ``$ git clone https://github.com/julmot/jmBoilerplate/``
+   - [Download](https://github.com/julmot/jmBoilerplate/archive/master.zip) it as zip
+2. In the projects root directory run ``$ npm install``.
 3. After that run ``$ bower install``
-4. Make sure you have installed [Compass](http://compass-style.org/install/) (which requires Ruby and SASS)
-5. Finally, run ``$ grunt dev``
+4. Finally, run ``$ grunt dev``
+5. Open your application in your browser. You can go ahead with the `file:///`-protocol or open the localhost URL that has been printed to the console, like `http://localhost:8000`
 
-And you are done and can start developing your application! Simply open the 
-included index.html or open your browser and type in http://localhost:8000 (if you have
-not disabled the server - see below).
+Happy hacking!
+
+_Tip: You can forward your server port to e.g. [Android devices](https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging)_
 
 ## 3. Project structure
 The structure is easy to understand:
@@ -115,7 +115,7 @@ Step by step:
 	If you want to change this structure just change the file
 	location in "main.js".
 - src/assets
-  - Your static assets live here. You can use them in the styles.
+  - Your static assets like images and fonts live here. You can use them in the styles.
 - src/resources
   - This is optionally and may be needed in some applications.
     Normally this includes all application based resources
@@ -131,7 +131,7 @@ Step by step:
 	The "_sprites.scss" will be generated by the build process and is
 	only necessary to include from the "_base.scss".
 	
-	If you are interested in the files in detail, look at the files comments.
+	If you are interested in the files in detail have a look into it.
 - node_modules/
   - Contains all modules that are necessary for the build process. Therefore
     it is only necessary for development purposes.
@@ -140,107 +140,81 @@ Step by step:
     will be loaded into this directory with "Bower" (``$ bower install`` or ``$ bower update``).
 	Add dependencies into "bower.json"!
 - .bowerrc
-  - Just a internal file to configure Bower.
+  - Just an internal file to configure Bower.
 - bower.json
   - This file is necessary to work with Bower. Also it contains all the
     metadata of your project if you want to publish and register it to the
 	Bower database.
 - Gruntfile.js
-  - This is the build process.
+  - The main file - the build.
 - index.html
-  - The applications index file.
+  - The applications index file. You can rename it or create multiple HTML files, it's up to you. All HTML files will be included in the build.
 - jmBoilerplate.version
-  - This file gives you information about the installed jmBoilerplate
+  - This file gives you informations about the installed jmBoilerplate
     version. If you want to update jmBoilerplate you can check the version inside this file
     against the current version.
 - package.json
   - Necessary for the build process. Also it contains
-    all the metadata of your project (like "bower.json"). Note: All
-	the contributors that are listed in here will be included in the
+    all the metadata of your project (like "bower.json"). Note: 
+     - All the contributors that are listed in here will be included in the
 	banner (copyrigt header) in your compiled js, css and html files.
+     - Also this file can contain a list of browsers that your application supports. If so, it will show a fallback message if the user has opened your application with a deprecated or unsupported browser.
 - README.md
   - Describe your project here
-  
-## 4. Build
-The build is the largest component of jmBoilerplate. It generates the files
-you need to develop and to distribute your app.
 
-How does this work? Well, it's pretty simple.
-### 4.1 Development
-If you want to develop your app simply run ``$ grunt dev``. In the background a folder "/build" will be created.
-It will contain a subfolder "css" with your "app.css" inside. This is the compiled file
-of your styles, without minification and with debug hints. Also it will track
-any changes to your style-files and will re-run the compiling task on each file change. Cool, isn't it?
-On top this will generate sprites for you. You can use for example retina sprites with
+## 4. Build
+The build process is splitted into the following approaches:
+
+### 4.1 Dev
+The build for development. Run it with `$ grunt dev`.
+
+In the background a folder "/build" will be created. It will contain a subfolder "css" with your "app.css" inside. If you have not disabled livereload it will track any changes in your application and re-compile on file changes. Cool, isn't it? On top it allows you to generate [sprites](http://www.w3schools.com/css/css_image_sprites.asp) for you. You can use for example retina sprites with:
 ```scss
 @include retina-sprite($my-icon);
 ```
-Have a look at "_sprites.scss" inside "src/styles" for detailed usage informations.
-If you want to prevent sprite generation you can call the development build with ``$ grunt dev --sprites=false``.
+Have a look at "_sprites.scss" inside "src/styles" for detailed usage informations about sprites.
 
-Also the development build creates a server so that you can run your application and debug
-it (e.g. with Chrome or Safari) on your mobile devices. The server can be disabled with
-```$ grunt dev --server=false```. By default it will run under port 8000, which you can change with
-```$ grunt dev --port=1234```.
+**Options:**
 
-At least the development build includes livereload. This means, that if you have not disabled
-the server and also not the livereload the webpage will be automatically reloaded
-on file changes. You can also disable this feature by calling the build with ``$ grunt dev --livereload=false``.
-To change the default livereload port (35729) call it with ``$ grunt dev --livereloadPort=1234```.
+| Option         	| Type 	| Default 	| Description                                                                                     |
+|----------------	|------	|---------	|-------------------------------------------------------------------------------------------------|
+| server         	| bool 	| true    	| If you want to run a development server. _Note: This is necessary for livereload_               |
+| port           	| int  	| 8000    	| The port for the development server                                                             |
+| sprites        	| bool 	| true    	| Specify `false` if your application does not contain sprite images                              |
+| livereload     	| bool 	| true    	| Set it to `false` if you want to disable livereload on file changes                	          |
+| livereloadPort 	| int  	| 35729   	| The related livereload [port](https://github.com/gruntjs/grunt-contrib-watch#optionslivereload) |
 
-###4.2 Production
-In production all JavaScript files will be combined and compressed into a single "app.min.js"-file. For this the
-"RequireJS Optimizer" will be used. Also it will compile your styles into a single "app.min.css"-file and generate sprites (see [Development](#41-development) how to disable it). Also all .html-files inside the root-folder of your app will be compressed. You can prevent this with `$ grunt prod --minifyHTML=false`. If you just want to prevent the minification for a single file use `$ grunt prod --minifyHTMLIgnore=myfile.html` and `$grunt prod --minifyHTMLIgnore={myfile.html,secondFile.html}` for multiple files.
-Your production app will be generated with all assets, resources, js and css into "/dist" (will be created if it does not exist). On top the output will be zipped into "/dist". You can prevent this if you want with
-calling `$ grunt prod --zip=false`.
+_Note: Options can be passed like `$ grunt dev --option=value`._
 
-In case you have a limited list of supported browsers for your application you can define this list in the
-package.json file (have a look into it in this repository). If you have defined it a file "fallback.js" will be created in the output of your
-production build. This file will check the user agent against the list of supported browsers
-and will show a system dialog with your custom error message if it does not match. The error message
-should be available in an element with id `browserFallback`, e.g. `div`. All `<br>`-tags will be
-converted to javascript linebreaks for the alert window. 
-If you don't need this functionality you can delete the `supportedBrowsers` element in the `package.json`, the `fallback.js` file from within `src/app` and
-the `detectjs`-dependency inside `bower.json`.
-This feature was built to give the user the information wheter the 
-application was optimized for his browser or not.
+### 4.2 Prod
+The build for production (dist, compile). Run it with `$ grunt prod`.
 
-###4.3 Version-update
+In production all JavaScript files will be combined and compressed into a single "app.min.js"-file. For this the "RequireJS Optimizer" will be used. Also it will compile your styles into a single "app.min.css"-file.
+If you have not disabled it, sprites will be generated and HTML minification be done.
+Your production app will be generated with all assets, resources, js and css into "/dist" (will be created if it does not exist).
+If you want, a zip can be generated too.
+
+In case you have a limited list of supported browsers for your application you can define this list in the package.json (have a look into it in this repository).
+Once you have defined it a file "fallback.js" will be created in the output of your production build.
+This file will check the user agent against the list of supported browsers and will show a system dialog with your custom error message if it does not match.
+The error message should be available in an element with id `browserFallback`, e.g. div.
+All <br>-tags will be converted to javascript linebreaks for the system dialog. If you don't need this functionality you can 
+delete the `supportedBrowsers` element in the package.json, the fallback.js file from within src/app and the detectjs-dependency inside bower.json.
+This feature was built to give users information whether the application was not optimized for the used browser.
+
+**Options:**
+
+| Option           	| Type   	| Default 	| Description                                                                                                                                                                                                                                           |
+|------------------	|--------	|---------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    |
+| sprites          	| bool   	| true    	| Specify `false` if your application does not contain sprite images                                                                                                                                                                                    |
+| minifyHTML       	| bool   	| true    	| If you want to disable HTML minification                                                                                                                                                                                                              |
+| minifyHTMLIgnore 	| string 	| ""      	| If you just want to prevent HTML minification for specific files and not generally you can use this option. For a single file use `--minifyHTMLIgnore=myfile.html` and for multiple files `--minifyHTMLIgnore={myfile.html,secondFile.html}`          |
+| zip              	| bool   	| true    	| If you want to generate a zip of the dist output                                                                                                                                                                                                      |
+
+_Note: Options can be passed like `$ grunt prod --option=value`._
+
+### 4.3 Version update
 If you want to update the version of your app you can simply call `$ grunt version-update --target=YourVersion`. This will
 change the version in bower.json and package.json.
 
-## 5. How-tos
-### 5.1 How to configure routing
-Insisde your project there is a file called "routes.js" located inside "src/app". This file contains your routing
-configuration. Each route needs to have at least a ``title`` (for the browser window), a ``file`` to load when the route
-is called and of course a ``route``. Additionally you can add a ``primaryRoute`` (boolean) element to define that this route
-should be loaded when your app loads.
-
-You need to define at least one "/404"-route and a route with ``primaryRoute`` set to true.
-
-### 5.2 How to create a controller
-To create a new controller simply clone the file "HomeCtrl" located inside src/app.
-Note: Alle Controllers must start with a CamelCase filename.
-
-To connect your controller with a template, open your "index.html". In the correct place create
-an element and assign your controller to it
-```html
-<div data-ng-controller="MyController as ctrl">
-    <!-- Your controller logic comes here -->
-</div>
-```
-
-### 5.3 How to use this boilerplate without AngularJS
-1. In your "bower.json" remove all dependencies that start with "angular".
-2. In "src/app" remove all subfolders like "controllers", "factories" and remove the files "routes.js", "config.js".
-3. Open the "app.js" and remove everything inside.
-4. Open "main.js" and remove all angular-dependencies from shim-object. Also make
-   sure that you have removed all controllers, factories and angular-libs from paths-object.
-   In "deps" just leave the "app". And last but not least remove the callback-object.
-5. In "index.html" remove all AngularJS things.
-6. In "src/app/styles/base.scss" make sure to remove the angular vendor css imports.
-7. You are done! Your build will now work as usual, you can still use requirejs in JS
-   but you are not using AngularJS.
-
-
-
+[![Built with love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)

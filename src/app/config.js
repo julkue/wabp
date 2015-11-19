@@ -11,11 +11,14 @@
 		// You can use the following variables
 		// in the configuration. They will
 		// be replaced in the production build.
+		// For example the JS_PATH variable could
+		// be used to reference worker files
 		var ENV = "dev";
 		var RESOURCES_PATH = "src/resources";
 		var IMAGES_PATH = "src/assets/images";
 		var FONTS_PATH = "src/assets/fonts";
-		var CSS_PATH = "dist/css"
+		var CSS_PATH = "dist/css";
+		var JS_PATH = "src/app";
 		return {
 			// Common
 			"app": {
