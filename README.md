@@ -217,4 +217,7 @@ _Note: Options can be passed like `$ grunt prod --option=value`._
 If you want to update the version of your app you can simply call `$ grunt version-update --target=YourVersion`. This will
 change the version in bower.json and package.json.
 
-[![Built with love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+___
+
+[![Built with love](http://forthebadge.com/images/badges/built-with-love.svg)](http://github.com/julmot/jmBoilerplate)
+[![Powered-by electricity](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://github.com/julmot/jmBoilerplate)
