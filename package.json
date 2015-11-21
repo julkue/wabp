@@ -57,6 +57,11 @@
         "from": 46
       }
     },
+    "Chrome Mobile": {
+      "version": {
+        "from": 46
+      }
+    },
     "Safari": {
       "version": {
         "from": 8
