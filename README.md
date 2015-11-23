@@ -32,7 +32,7 @@
  - Simply to setup optional components like Bootstrap or Foundation
 
 ## 2. Quickstart
-_Requirements for development: [NodeJS](https://nodejs.org/) including npm and [Bower](http://bower.io/#install-bower) as well as [Compass](http://compass-style.org/install/) installed._
+_Requirements: [NodeJS](https://nodejs.org/) including npm and [Bower](http://bower.io/#install-bower) as well as [Compass](http://compass-style.org/install/) installed._
 
 1. Download this repository using one of these options:
    - Run ``$ git clone https://github.com/julmot/jmBoilerplate/``
