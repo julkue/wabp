@@ -107,14 +107,23 @@
 		app.run([
 			"$location",
 			"$rootScope",
-			function($location, $rootScope){
+			"$translate",
+			function($location, $rootScope, $translate){
 				// Redirect to primaryRoute URL
 				if($location.path() === "" || $location.path() === "/") {
 					$location.path(primaryRoute);
 				}
+				// Provide language abbreviation on rootScope for
+				// "lang" attributes.
+				// This is essential for correct hyphenation
+				// (CSS: "hyphens: auto;")
+				$rootScope.language = $translate.use();
+				$rootScope.$on("$translateChangeSuccess", function(){
+					$rootScope.language = $translate.use();
+				});
 				// Change pageTitle
-				$rootScope.$on("$routeChangeSuccess", function(event, currentRoute, previousRoute){
-					$rootScope.title = currentRoute.title;
+				$rootScope.$on("$routeChangeSuccess", function(event, currRoute, prevRoute){
+					$rootScope.title = currRoute.title;
 				});
 			}
 		]);
