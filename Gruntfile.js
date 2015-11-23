@@ -481,7 +481,7 @@ module.exports = function(grunt){
 						},
 						// Resources
 						{
-							pattern: "src/resources/",
+							pattern: /src\/resources/gm,
 							replacement: "resources/"
 						}
 					]
