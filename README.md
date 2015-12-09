@@ -251,3 +251,4 @@ ___
 
 [![Built with love](http://forthebadge.com/images/badges/built-with-love.svg)](http://github.com/julmot/jmBoilerplate)
 [![Powered-by electricity](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://github.com/julmot/jmBoilerplate)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/julmot/jmboilerplate/trend.png)](http://github.com/julmot/jmBoilerplate)
