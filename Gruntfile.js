@@ -685,6 +685,11 @@ module.exports = function(grunt){
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 	
 	/**
+	 * Print copyright
+	 */
+	grunt.log.subhead(grunt.config().banner);
+	
+	/**
 	 * Standard task is not
 	 * defined
 	 */
@@ -696,7 +701,6 @@ module.exports = function(grunt){
 	 * Development build
 	 */
 	grunt.registerTask('dev', 'Development CSS build', function(){
-		grunt.log.subhead(grunt.config().banner);
 		grunt.task.run(
 			'clean:build'
 		);
@@ -731,7 +735,6 @@ module.exports = function(grunt){
 	 * Production build
 	 */
 	grunt.registerTask('prod', 'Production build', function(){
-		grunt.log.subhead(grunt.config().banner);
 		grunt.task.run(
 			'clean:dist'
 		);
@@ -808,8 +811,6 @@ module.exports = function(grunt){
 	 * Version update task
 	 */
 	grunt.registerTask('version-update', 'Version update', function(){
-		grunt.log.subhead(grunt.config().banner);
-		
 		var ver = grunt.option('target');
 		if(typeof ver === 'string' && ver != ''){
 			grunt.log.subhead('Updating to version: "' + ver + "'");
