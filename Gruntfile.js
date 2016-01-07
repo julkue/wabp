@@ -34,7 +34,7 @@ module.exports = function(grunt){
 		/**
 		 * Time variables
 		 */
-		year: new Date().getFullYear(),
+		year: pkg.copyrightYear || new Date().getFullYear(),
 		date: new Date().toUTCString(),
 		/**
 		 * Set project paths

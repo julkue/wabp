@@ -231,6 +231,13 @@ element in the package.json, the fallback.js file from within src/app and the
 detectjs-dependency inside bower.json. This feature was built to give users
 information whether the application was not optimized for the used browser.
 
+A header (copyright notice) will be prefixed to each generated file. It will
+contain the author, app name, app version, build time, contributors and a
+copyright year. All informations will be loaded from package.json.
+The copyright year will be the current year, but if
+you want a custom one you can set the property `copyrightYear` in
+[package.json](https://github.com/julmot/jmBoilerplate/blob/master/package.json#L43).
+
 **Options:**
 
 | Option           	| Type   	| Default 	| Description                                                                                                                                                                                                                                           |
