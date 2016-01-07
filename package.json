@@ -48,6 +48,11 @@
         "till": 11
       }
     },
+    "Edge": {
+      "version": {
+        "from": 12
+      }
+    },
     "Firefox": {
       "version": {
         "from": 41
