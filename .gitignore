@@ -8,3 +8,4 @@ node_modules
 .idea
 TODO
 _sprites.scss
+sprites*.png
