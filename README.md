@@ -29,8 +29,9 @@
   - HTML minification
   - ZIP generation
   - Optionally including a fallback message for unsupported browsers
- - Also includes Fontawesome used as loading spinner
- - Simply to setup optional components like Bootstrap or Foundation
+- Deployment tasks (local and FTP)
+- Also includes Fontawesome used as loading spinner
+- Simply to setup optional components like Bootstrap or Foundation
 
 ## 2. Quickstart
 _Requirements: [NodeJS](https://nodejs.org/) including npm and
@@ -194,7 +195,8 @@ You can use for example retina sprites with:
 @include retina-sprite($my-icon);
 ```
 
-Have a look at "_sprites.scss" inside "src/styles" for detailed usage information about sprites.
+Have a look at "_sprites.scss" inside "src/styles" for detailed usage information about sprites
+(after running your first build).
 
 **Options:**
 
