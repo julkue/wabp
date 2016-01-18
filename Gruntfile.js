@@ -131,6 +131,17 @@ module.exports = function(grunt){
 						dest: '<%= project.dist.web %>/js/fallback.js'
 					}
 				]
+			},
+			'deploy-local': {
+				files: [
+					{
+						cwd: '<%= project.dist.web %>',
+						src: ['**/*'],
+						timestamp: true,
+						expand: true,
+						dest: grunt.option('target')
+					}
+				]
 			}
 		},
 		/**
@@ -819,5 +830,16 @@ module.exports = function(grunt){
 			grunt.log.error('You need to provide a version ("target")');
 		}
 		
+	});
+	/**
+	 * Local deployment task
+	 */
+	grunt.registerTask('deploy-local', 'Deployment', function(){
+		var target = grunt.option('target');
+		if(typeof target === 'string' && target != ''){
+			grunt.task.run('copy:deploy-local');
+		} else {
+			grunt.log.error('You need to provide a target (--target="C:/path/to/target")');
+		}
 	});
 };

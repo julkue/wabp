@@ -249,7 +249,18 @@ you want a custom one you can set the property `copyrightYear` in
 
 _Note: Options can be passed like `$ grunt prod --option=value`._
 
-### 4.3 Version update
+### 4.3 Local deployment
+Deploy the generated output to a local target. Run it with `$ grunt deploy-local`.
+
+**Options:**
+
+| Option | Type   | Default | Description                                                                                                   |
+|--------|--------|---------|---------------------------------------------------------------------------------------------------------------|
+| target | string | ""      | The target destination path for the deployment. Note: Use / forward slashes instead of Windows \ backslashes. |
+
+_Note: Options can be passed like `$ grunt deploy-local --option=value`._
+
+### 4.4 Version update
 If you want to update the version of your app you can simply call
 `$ grunt version-update --target=YourVersion`. This will change the version in 
 bower.json and package.json.
