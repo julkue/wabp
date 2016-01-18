@@ -688,6 +688,17 @@ module.exports = function(grunt){
 				logConcurrentOutput: true
 			},
 			dev: ['watch:dev', 'watch:livereload']
+		},
+		'ftp-deploy': {
+			prod: {
+				auth: {
+					host: grunt.option('host'),
+					port: grunt.option('port') || 21,
+					authKey: grunt.option('host')
+				},
+				src: '<%= project.dist.web %>',
+				dest: grunt.option('dest') || '/'
+			}
 		}
 	});
 	/**
@@ -827,19 +838,48 @@ module.exports = function(grunt){
 			grunt.log.subhead('Updating to version: "' + ver + "'");
 			grunt.task.run('string-replace:version-update');
 		} else {
-			grunt.log.error('You need to provide a version ("target")');
+			grunt.log.error('You need to provide a version (--target="1.0.0")');
 		}
 		
 	});
 	/**
 	 * Local deployment task
 	 */
-	grunt.registerTask('deploy-local', 'Deployment', function(){
+	grunt.registerTask('deploy-local', 'Local Deployment', function(){
 		var target = grunt.option('target');
 		if(typeof target === 'string' && target != ''){
 			grunt.task.run('copy:deploy-local');
 		} else {
 			grunt.log.error('You need to provide a target (--target="C:/path/to/target")');
+		}
+	});
+	/**
+	 * FTP deployment task
+	 */
+	grunt.registerTask('deploy-ftp', 'FTP Deployment', function(){
+		var host = grunt.option('host');
+		if(typeof host === 'string' && host != ''){
+			// create .ftppass file (needed by the task ftp-deploy)
+			// contains the username and password for the ftp connection
+			grunt.file.write(
+				'.ftppass',
+				'{'
+					+ '"' + grunt.option('host') + '": {' +
+						'"username": "' + grunt.option('user') + '",' +
+						'"password": "' + grunt.option('password') + '"' +
+					'}' +
+				'}'
+			);
+			// create a task to delete the .ftppass file, because
+			// if we would delete it after .task.run it will be
+			// deleted immediately, but ftp-deploy is async!
+			// Define the task here to make it inaccessible from the outside
+			grunt.registerTask('deploy-ftp-done', '', function(){
+				grunt.file.delete('.ftppass');
+			});
+			grunt.task.run('ftp-deploy:prod', 'deploy-ftp-done');
+		} else {
+			grunt.log.error('You need to provide a host (--host="myhost.com")');
 		}
 	});
 };

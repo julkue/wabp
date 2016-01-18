@@ -179,7 +179,7 @@ Step by step:
   - Describe your project here
 
 ## 4. Grunt tasks
-The build process is split into the following approaches:
+The boilerplate has tasks for different approaches:
 
 ### 4.1 Dev build
 The build for development. Run it with `$ grunt dev`.
@@ -254,13 +254,28 @@ Deploy the generated output to a local target. Run it with `$ grunt deploy-local
 
 **Options:**
 
-| Option | Type   | Default | Description                                                                                                   |
-|--------|--------|---------|---------------------------------------------------------------------------------------------------------------|
-| target | string | ""      | The target destination path for the deployment. Note: Use / forward slashes instead of Windows \ backslashes. |
+| Option | Type   | Default | Optional | Description                                                                                                   |
+|--------|--------|---------|----------|---------------------------------------------------------------------------------------------------------------|
+| target | string | none    | false    | The target destination path for the deployment. Note: Use / forward slashes instead of Windows \ backslashes. |
 
 _Note: Options can be passed like `$ grunt deploy-local --option=value`._
 
-### 4.4 Version update
+### 4.4 FTP deployment
+Deploy the generated output to a FTP target. Run it with `$ grunt deploy-ftp`.
+
+**Options:**
+
+| Option   | Type   | Default | Optional | Description                             |
+|----------|--------|---------|----------|-----------------------------------------|
+| host     | string | none    | false    | FTP host, e.g. "mydomain.com"           |
+| port     | number | 21      | true     | FTP connection port. Normally it is 21  |
+| username | string | none    | true     | FTP username (if necessary)             |
+| password | string | none    | true     | FTP password (if necessary)             |
+| dest     | string | "/"     | true     | The destination path on the FTP server  |
+
+_Note: Options can be passed like `$ grunt deploy-ftp --option=value`._
+
+### 4.5 Version update
 If you want to update the version of your app you can simply call
 `$ grunt version-update --target=YourVersion`. This will change the version in 
 bower.json and package.json.
