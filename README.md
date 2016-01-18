@@ -178,10 +178,10 @@ Step by step:
 - README.md
   - Describe your project here
 
-## 4. Build
+## 4. Grunt tasks
 The build process is split into the following approaches:
 
-### 4.1 Dev
+### 4.1 Dev build
 The build for development. Run it with `$ grunt dev`.
 
 In the background, a folder "/build" will be created. It will contain a subfolder
@@ -208,7 +208,7 @@ Have a look at "_sprites.scss" inside "src/styles" for detailed usage informatio
 
 _Note: Options can be passed like `$ grunt dev --option=value`._
 
-### 4.2 Prod
+### 4.2 Prod build
 The build for production (dist, compile). Run it with `$ grunt prod`.
 
 In production, all JavaScript files will be combined and compressed into a single
