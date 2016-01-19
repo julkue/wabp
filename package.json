@@ -1,5 +1,6 @@
 {
   "name": "jmBoilerplate",
+  "description": "A kickstarter boilerplate for web projects",
   "author": "Julian Motz",
   "version": "0.6.0",
   "keywords": [
