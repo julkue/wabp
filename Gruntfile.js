@@ -136,7 +136,7 @@ module.exports = function(grunt){
 				files: [
 					{
 						cwd: '<%= project.dist.web %>',
-						src: ['**/*'],
+						src: ['**/*', ((typeof grunt.option('exclude') === 'string') ? ('!' + (grunt.option('exclude').split(',').join(',!'))).split(','): [])],
 						timestamp: true,
 						expand: true,
 						dest: grunt.option('target')

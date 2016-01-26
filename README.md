@@ -256,9 +256,10 @@ Deploy the generated output to a local target. Run it with `$ grunt deploy-local
 
 **Options:**
 
-| Option | Type   | Default | Optional | Description                                                                                                   |
-|--------|--------|---------|----------|---------------------------------------------------------------------------------------------------------------|
-| target | string | none    | false    | The target destination path for the deployment. Note: Use / forward slashes instead of Windows \ backslashes. |
+| Option  | Type   | Default | Optional | Description                                                                                                    |
+|---------|--------|---------|----------|----------------------------------------------------------------------------------------------------------------|
+| target  | string | none    | false    | The target destination path for the deployment. Note: Use / forward slashes instead of Windows \ backslashes.  |
+| exclude | string | none    | true     | A list of files to exclude. Use a "," to separate multiple files. Example: `--exclude="index.html, assets/**"` |
 
 _Note: Options can be passed like `$ grunt deploy-local --option=value`._
 
