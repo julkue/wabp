@@ -268,13 +268,14 @@ Deploy the generated output to a FTP target. Run it with `$ grunt deploy-ftp`.
 
 **Options:**
 
-| Option   | Type   | Default | Optional | Description                             |
-|----------|--------|---------|----------|-----------------------------------------|
-| host     | string | none    | false    | FTP host, e.g. "mydomain.com"           |
-| port     | number | 21      | true     | FTP connection port. Normally it is 21  |
-| username | string | none    | true     | FTP username (if necessary)             |
-| password | string | none    | true     | FTP password (if necessary)             |
-| dest     | string | "/"     | true     | The destination path on the FTP server  |
+| Option   | Type   | Default | Optional | Description                                                                                                    |
+|----------|--------|---------|----------|----------------------------------------------------------------------------------------------------------------|
+| host     | string | none    | false    | FTP host, e.g. "mydomain.com"                                                                                  |
+| port     | number | 21      | true     | FTP connection port. Normally it is 21                                                                         |
+| username | string | none    | true     | FTP username (if necessary)                                                                                    |
+| password | string | none    | true     | FTP password (if necessary)                                                                                    |
+| dest     | string | "/"     | true     | The destination path on the FTP server                                                                         |
+| exclude  | string | none    | true     | A list of files to exclude. Use a "," to separate multiple files. Example: `--exclude="index.html, assets/**"` |
 
 _Note: Options can be passed like `$ grunt deploy-ftp --option=value`._
 

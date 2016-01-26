@@ -697,7 +697,8 @@ module.exports = function(grunt){
 					authKey: grunt.option('host')
 				},
 				src: '<%= project.dist.web %>',
-				dest: grunt.option('dest') || '/'
+				dest: grunt.option('dest') || '/',
+				exclusions: (typeof grunt.option('exclude') === 'string') ? grunt.option('exclude').split(','): []
 			}
 		}
 	});
