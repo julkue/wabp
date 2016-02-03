@@ -18,7 +18,8 @@
   "repository": "julmot/jmBoilerplate",
   "contributors": [
     {
-      "name": "Julian Motz"
+      "name": "Julian Motz",
+      "url": "github.com/julmot"
     }
   ],
   "devDependencies": {

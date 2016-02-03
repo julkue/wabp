@@ -19,7 +19,8 @@
   },
   "authors": [
     {
-      "name": "Julian Motz"
+      "name": "Julian Motz",
+      "homepage": "github.com/julmot"
     }
   ],
   "dependencies": {},
