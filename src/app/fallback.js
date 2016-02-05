@@ -59,14 +59,10 @@
 			// Continue showing the message
 		}
 		
-		// Get fallback message
-		var element = document.getElementById("browserFallback");
-		var text = "You are using an unsupported browser";
-		if(element != null){
-			if(element.innerHTML != ""){
-				text = element.innerHTML;
-			}
-		}
+		// Define fallback message
+		var text = "You are using an unsupported browser. Please update your " +
+				   "browser version or switch to a different browser to use " +
+				   "all features of this application.";
 		// Replace line-breaks to JS-alert line-breaks
 		text = text.replace(/(\r\n|\n|\r|\t)/gm,"")
 					.replace(/<br>/gim, "\n")

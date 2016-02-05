@@ -708,11 +708,6 @@ module.exports = function(grunt){
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 	
 	/**
-	 * Print copyright
-	 */
-	grunt.log.subhead(grunt.config().banner);
-	
-	/**
 	 * Standard task is not
 	 * defined
 	 */
@@ -724,6 +719,7 @@ module.exports = function(grunt){
 	 * Development build
 	 */
 	grunt.registerTask('dev', 'Development CSS build', function(){
+		grunt.log.subhead(grunt.config().banner);
 		grunt.task.run(
 			'clean:build'
 		);
@@ -758,6 +754,7 @@ module.exports = function(grunt){
 	 * Production build
 	 */
 	grunt.registerTask('prod', 'Production build', function(){
+		grunt.log.subhead(grunt.config().banner);
 		grunt.task.run(
 			'clean:dist'
 		);
@@ -834,6 +831,7 @@ module.exports = function(grunt){
 	 * Version update task
 	 */
 	grunt.registerTask('version-update', 'Version update', function(){
+		grunt.log.subhead(grunt.config().banner);
 		var ver = grunt.option('target');
 		if(typeof ver === 'string' && ver != ''){
 			grunt.log.subhead('Updating to version: "' + ver + "'");
@@ -847,6 +845,7 @@ module.exports = function(grunt){
 	 * Local deployment task
 	 */
 	grunt.registerTask('deploy-local', 'Local Deployment', function(){
+		grunt.log.subhead(grunt.config().banner);
 		var target = grunt.option('target');
 		if(typeof target === 'string' && target != ''){
 			grunt.task.run('copy:deploy-local');
@@ -858,6 +857,7 @@ module.exports = function(grunt){
 	 * FTP deployment task
 	 */
 	grunt.registerTask('deploy-ftp', 'FTP Deployment', function(){
+		grunt.log.subhead(grunt.config().banner);
 		var host = grunt.option('host');
 		if(typeof host === 'string' && host != ''){
 			// create .ftppass file (needed by the task ftp-deploy)

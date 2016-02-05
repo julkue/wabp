@@ -20,8 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="build/css/app.css">
 </head>
 <body>
-	<main data-ng-view>
-	</main>
+	<div data-ng-view></div>
 	<div id="loading">
 		<div id="spinner-container">
 			<div id="spinner">
@@ -39,11 +38,6 @@
 			Whooops - Nothing here!
 		</div>
 	</script>
-	<div id="browserFallback">
-		You are using a non supported browser!<br>
-		Please update your browser version or switch to a different browser 
-		to be able to use all features of this application.<br><br>
-	</div>
 	<script src="vendor/requirejs/require.js" data-main="src/app/main" async></script>
 </body>
 </html>

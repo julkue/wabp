@@ -24,79 +24,68 @@ body{
 	font-size:$appFontSize;
 	line-height:$appLineHeight;
 	font-family:$primaryFont;
+}
+/**
+ * Loader
+ * Will be shown in loader factory
+ * (comes up between route changes)
+ */
+#loading{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:999999999998;
+	cursor:wait;
+	visibility:visible;
+	@include translate3d(0, 0 ,0);
 	
-	/**
-	 * Loader
-	 * Will be shown in loader factory
-	 * (comes up between route changes)
-	 */
-	#loading{
-		position:fixed;
-		top:0;
-		left:0;
-		width:100%;
-		height:100%;
-		z-index:999999999998;
-		cursor:wait;
-		visibility:visible;
-		@include translate3d(0, 0 ,0);
+	#spinner-container{
+		#spinner{
+			position:fixed;
+			top:50%;
+			left:50%;
+			width:64px;
+			height:64px;
+			margin:-37px 0 0 -37px;
+			padding:10px;
+			background:$appLoaderBg;
+			opacity:1;
+			@include border-radius(5px);
+			@include transition(all .15s ease-in-out);
+			
+			> i{
+				color:$appLoaderColor;
+			}
+		}
+	}
+	&.hide{
+		visibility:hidden;
 		
 		#spinner-container{
 			#spinner{
-				position:fixed;
-				top:50%;
-				left:50%;
-				width:64px;
-				height:64px;
-				margin:-37px 0 0 -37px;
-				padding:10px;
-				background:$appLoaderBg;
-				opacity:1;
-				@include border-radius(5px);
-				@include transition(all .15s ease-in-out);
-				
-				> i{
-					color:$appLoaderColor;
-				}
-			}
-		}
-		&.hide{
-			visibility:hidden;
-			
-			#spinner-container{
-				#spinner{
-					opacity:0;
-				}
+				opacity:0;
 			}
 		}
 	}
-	
-	/**
-	 * Browser fallback
-	 * (will contain the error message if the user is using a 
-	 *  unsupported browser)
-	 */
-	#browserFallback{
-		display:none;
-	}
-	
-	/**
-	 * Home controller
-	 * and styles if a route
-	 * does not exist
-	 */
-	.nothingFound,
-	.homeCtrl{
-		position:absolute;
-		top:50%;
-		left:50%;
-		width:320px;
-		height:200px;
-		margin:-100px 0 0 -160px;
-		text-align:center;
-		color:$homeCtrlColor;
-		background:$homeCtrlBg;
-		font-size:$homeCtrlFontSize;
-		line-height:$homeCtrlLineHeight;
-	}
+}
+/**
+ * Home controller
+ * and styles if a route
+ * does not exist
+ */
+.nothingFound,
+.homeCtrl{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:320px;
+	height:200px;
+	margin:-100px 0 0 -160px;
+	text-align:center;
+	color:$homeCtrlColor;
+	background:$homeCtrlBg;
+	font-size:$homeCtrlFontSize;
+	line-height:$homeCtrlLineHeight;
 }
