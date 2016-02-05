@@ -7,10 +7,10 @@
 /___/                                   /_/                       
 ```
 
-[![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
-[![Build Status](https://img.shields.io/travis/julmot/jmBoilerplate/master.svg)](https://travis-ci.org/julmot/jmBoilerplate)
-[![Maintenance](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/julmot/jmBoilerplate)
-[![Version](https://img.shields.io/bower/v/jmboilerplate.svg?label=version)](https://github.com/julmot/jmBoilerplate/releases)
+[![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
+[![Build Status](https://img.shields.io/travis/julmot/jmBoilerplate/master.svg?style=flat-square)](https://travis-ci.org/julmot/jmBoilerplate)
+[![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?style=flat-square)](https://github.com/julmot/jmBoilerplate)
+[![Version](https://img.shields.io/bower/v/jmboilerplate.svg?label=version&style=flat-square)](https://github.com/julmot/jmBoilerplate/releases)
 
 **A kickstarter boilerplate for web projects.**
 
