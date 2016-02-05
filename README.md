@@ -7,11 +7,10 @@
 /___/                                   /_/                       
 ```
 
-[![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
-[![Build Status](https://travis-ci.org/julmot/jmBoilerplate.svg?branch=master)](https://travis-ci.org/julmot/jmBoilerplate)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/julmot/jmBoilerplate.svg)](http://isitmaintained.com/project/julmot/jmBoilerplate "Percentage of issues still open")
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/julmot/jmBoilerplate.svg)](http://isitmaintained.com/project/julmot/jmBoilerplate "Average time to resolve an issue")
+[![Dependency Status](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg)](https://www.versioneye.com/user/projects/55f92f283ed89400170006fb)
+[![Build Status](https://img.shields.io/travis/julmot/jmBoilerplate/master.svg)](https://travis-ci.org/julmot/jmBoilerplate)
+[![Maintenance](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/julmot/jmBoilerplate)
+[![Version](https://img.shields.io/bower/v/jmboilerplate.svg?label=version)](https://github.com/julmot/jmBoilerplate/releases)
 
 **A kickstarter boilerplate for web projects.**
 
