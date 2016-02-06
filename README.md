@@ -38,15 +38,16 @@ _Requirements: [NodeJS](https://nodejs.org/) including npm and
 [Bower](http://bower.io/#install-bower) as well as 
 [Compass](http://compass-style.org/install/) installed._
 
-### 2a Quickstart
+### 2.1a Quickstart
 
 **Use the [jmBoilerplate generator](https://github.com/julmot/generator-jmboilerplate)
 to setup your boilerplate.**
+
 Finally run ``$ grunt dev``. Now open the application in your browser via
 the `file:///`-protocol or the localhost URL that has been printed to the
 console, as in this example: `http://localhost:8000`.
 
-### 2b Manual setup
+### 2.1b Manual setup
 
 1. Download this repository using one of these options:
    - Run ``$ git clone https://github.com/julmot/jmBoilerplate/``
@@ -67,7 +68,7 @@ _Tip: You can forward your local server port to e.g.
 
 ## 3. Project structure
 
-#### 3a Project structure with AngularJS
+### 3.1a Project structure with AngularJS
 
 ```
 jmBoilerplate/
@@ -107,7 +108,7 @@ jmBoilerplate/
 |-- README.md
 ```
 
-#### 3b Project structure without AngularJS
+### 3.1b Project structure without AngularJS
 
 ```
 jmBoilerplate/
@@ -139,6 +140,7 @@ jmBoilerplate/
 |-- README.md
 ```
 
+### 3.2 Project structure explanation
 
 Step by step:
 - src/
@@ -240,7 +242,7 @@ In the background, a folder "/build" will be created. It will contain a subfolde
 "css" with your "app.css" inside. If you have not disabled livereload, it will
 track any changes in your application and re-compile on file changes. Cool, isn't it?
 On top, it allows you to generate [sprites](http://www.w3schools.com/css/css_image_sprites.asp).
-You can use for example retina sprites with:
+You can use for example retina sprites (@2x) inside an SCSS file with:
 
 ```scss
 @include retina-sprite($my-icon);
@@ -272,7 +274,7 @@ Your production app will be generated with all assets, resources, js and css int
 "/dist" (will be created if it does not exist). If you want, a zip can be generated too.
 
 In case you have a limited list of supported browsers for your application, you
-can define this list in the package.json (have a look into it in this repository).
+can define this list in the package.json (e.g. like in this repository).
 Once you have defined it, a file "fallback.js" will be created in the output of
 your production build.
 This file will check the user agent against the list of supported browsers and
@@ -283,6 +285,8 @@ If you don't need this functionality, you can delete the `supportedBrowsers`
 element in the package.json, the fallback.js file from within src/app and the
 detectjs-dependency inside bower.json. This feature was built to give users
 information whether the application was not optimized for the used browser.
+Note: The [generator](https://github.com/julmot/generator-jmboilerplate) can also
+handle this for you.
 
 A header (copyright notice) will be prefixed to each generated file. It will
 contain the author, app name, app version, build time, contributors and a
