@@ -18,44 +18,57 @@
 ## 1. Features
 
 - HTML5 ready
-- Predefined project structure for scalable web applications
 - Modular JavaScript architecture with dependency management (RequireJS, Bower)
 - Optionally including AngularJS with frequently used
-  services like routing, translation, configuration and mediator
+  services like routing, translation, configuration and a mediator
 - Builds for development and production
   - Including local server and livereload
   - SCSS/Compass compilation and minification
   - Sprite generation (including retina alternatives)
   - HTML minification
   - ZIP generation
-  - Optionally including a fallback message for unsupported browsers
 - Deployment tasks (local and FTP)
-- Also includes Fontawesome used as loading spinner
-- Simply to setup optional components like Bootstrap or Foundation
+- Project structure for scalable web applications
+- Simply to integrate other components like Bootstrap or Foundation
+- Optionally including browser detection and fallback messages 
+  for unsupported browsers
 
-## 2. Quickstart
+## 2. Getting started
+
 _Requirements: [NodeJS](https://nodejs.org/) including npm and
 [Bower](http://bower.io/#install-bower) as well as 
 [Compass](http://compass-style.org/install/) installed._
 
+### 2a Quickstart
+
+**Use the [jmBoilerplate generator](https://github.com/julmot/generator-jmboilerplate)
+to setup your boilerplate.**
+Finally run ``$ grunt dev``. Now open the application in your browser via
+the `file:///`-protocol or the localhost URL that has been printed to the
+console, as in this example: `http://localhost:8000`.
+
+### 2b Manual setup
+
 1. Download this repository using one of these options:
    - Run ``$ git clone https://github.com/julmot/jmBoilerplate/``
    - [Download](https://github.com/julmot/jmBoilerplate/archive/master.zip) it as zip
-2. In the projects root directory run ``$ npm install``.
-3. After that run ``$ bower install``
+2. If you want to use jmBoilerplate without angular, open the
+   [no-angular branch](https://github.com/julmot/jmBoilerplate/tree/no-angular) and
+   follow the steps inside README.md
+3. In the projects root directory run ``$ npm install`` and  ``$ bower install``
 4. Finally, run ``$ grunt dev``
-5. Open the application in your browser and then go ahead 
-   with the `file:///`-protocol or open the localhost URL
-   that has been printed to the console, as in this example:
-   `http://localhost:8000`
+5. Now open the application in your browser via
+   the `file:///`-protocol or the localhost URL that has been printed to the
+   console, as in this example: `http://localhost:8000`
 
 Happy hacking!
 
-_Tip: You can forward your server port to e.g. 
+_Tip: You can forward your local server port to e.g. 
 [Android devices](https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging)_
 
 ## 3. Project structure
-The structure is easy to understand:
+
+#### 3a Project structure with AngularJS
 
 ```
 jmBoilerplate/
@@ -85,6 +98,8 @@ jmBoilerplate/
 |-- node_modules/
 |-- vendor/
 |-- .bowerrc
+|-- .gitignore
+|-- .travis.yml
 |-- bower.json
 |-- Gruntfile.js
 |-- index.html
@@ -92,6 +107,39 @@ jmBoilerplate/
 |-- package.json
 |-- README.md
 ```
+
+#### 3b Project structure without AngularJS
+
+```
+jmBoilerplate/
+|-- src/
+|   |-- app/
+|   |   |-- app.js
+|   |   |-- main.js
+|   |-- assets/
+|   |   |-- images/
+|   |   |-- fonts/
+|   |-- resources/
+|   |-- styles/
+|       |-- _base.scss
+|       |-- _functions.scss
+|       |-- _mixins.scss
+|       |-- _settings.scss
+|       |-- _sprites.scss
+|       |-- app.scss
+|-- node_modules/
+|-- vendor/
+|-- .bowerrc
+|-- .gitignore
+|-- .travis.yml
+|-- bower.json
+|-- Gruntfile.js
+|-- index.html
+|-- jmBoilerplate.version
+|-- package.json
+|-- README.md
+```
+
 
 Step by step:
 - src/
@@ -155,12 +203,16 @@ Step by step:
     Add dependencies into "bower.json"!
 - .bowerrc
   - Just an internal file to configure Bower.
+- .travis.yml
+  - Travis CI configuration.
+- .gitignore
+  - A list of files that should be ignored by Git.
 - bower.json
   - This file is necessary to work with Bower. Also, it contains all the
     metadata of your project if you want to publish and register it to the
     Bower database.
 - Gruntfile.js
-  - The main file - the build.
+  - The main file - containing all grunt tasks.
 - index.html
   - The applications index file. You can rename it or create multiple HTML files.
     All HTML files will be included in the build.
@@ -177,7 +229,7 @@ Step by step:
        If so, it will show a fallback message if the user has opened your
        application with a deprecated or unsupported browser.
 - README.md
-  - Describe your project here
+  - Project description
 
 ## 4. Grunt tasks
 The boilerplate has tasks for different approaches:
@@ -287,4 +339,3 @@ bower.json and package.json.
 ___
 
 [![Built with love](http://forthebadge.com/images/badges/built-with-love.svg)](http://github.com/julmot/jmBoilerplate)
-[![Powered-by electricity](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://github.com/julmot/jmBoilerplate)
