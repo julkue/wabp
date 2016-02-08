@@ -103,7 +103,7 @@ jmBoilerplate/
 |-- bower.json
 |-- Gruntfile.js
 |-- index.html
-|-- jmBoilerplate.version
+|-- jmBoilerplate-version
 |-- package.json
 |-- README.md
 ```
@@ -135,7 +135,7 @@ jmBoilerplate/
 |-- bower.json
 |-- Gruntfile.js
 |-- index.html
-|-- jmBoilerplate.version
+|-- jmBoilerplate-version
 |-- package.json
 |-- README.md
 ```
@@ -217,7 +217,7 @@ Step by step:
 - index.html
   - The applications index file. You can rename it or create multiple HTML files.
     All HTML files will be included in the build.
-- jmBoilerplate.version
+- jmBoilerplate-version
   - This file gives you information about the installed jmBoilerplate
     version. If you want to update jmBoilerplate, you can check the version 
     inside this file against the current version.
