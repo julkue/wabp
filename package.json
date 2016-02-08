@@ -1,8 +1,8 @@
 {
   "name": "jmBoilerplate",
-  "description": "A kickstarter boilerplate for web projects",
-  "author": "Julian Motz",
   "version": "1.0.0",
+  "description": "A kickstarter boilerplate for web projects",
+  "homepage": "https://github.com/julmot/jmBoilerplate",
   "keywords": [
     "jmBoilerplate",
     "boilerplate",
@@ -10,18 +10,13 @@
     "framework",
     "web",
     "build",
-    "julmot",
     "angularjs",
     "ng"
   ],
   "license": "MIT",
   "repository": "julmot/jmBoilerplate",
-  "contributors": [
-    {
-      "name": "Julian Motz",
-      "url": "github.com/julmot"
-    }
-  ],
+  "author": "Julian Motz",
+  "dependencies": {},
   "devDependencies": {
     "almond": "~0.3",
     "connect-livereload": "^0.5",
