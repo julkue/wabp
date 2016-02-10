@@ -1,4 +1,7 @@
 This file exists to show you the installed version of jmBoilerplate.
 If you want to update jmBoilerplate you can compare against this version.
+It is not located inside the header of a project file nor in the documentation
+as you may change those things to fit your needs and the information would be
+lost.
 
 Installed version: 1.0.0
