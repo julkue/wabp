@@ -34,5 +34,8 @@
     "angular-ui-notification": "~0.0",
     "fontawesome": "~4.4",
     "darcyclarke-detectjs": "*"
+  },
+  "resolutions": {
+    "angular": "~1"
   }
 }
