@@ -12,19 +12,23 @@ module.exports = function(grunt){
 	var pkg = grunt.file.readJSON('package.json') || {};
 	/**
 	 * Generate list of contributors
-	 * for the banner (see usebanner below)
+	 * for the banner
 	 */
 	pkg.contributorsBanner = '';
-	var contributor = '';
-	var first = true;
 	for(var i in pkg.contributors){
-		contributor = pkg.contributors[i];
-		if(first){
-			first = false;
+		var contributor = pkg.contributors[i];
+		if(pkg.contributorsBanner === ''){
 			pkg.contributorsBanner += '- ' + contributor.name;
 		} else {
 			pkg.contributorsBanner += '\n *                    - ' + contributor.name;
 		}
+	}
+	/**
+	 * Generate author string
+	 */
+	pkg.authorString = pkg.author;
+	if(typeof pkg.authorString === 'object' && typeof pkg.authorString.name === 'string'){
+		pkg.authorString = pkg.authorString.name;
 	}
 	/**
 	 * Configuration
@@ -276,7 +280,7 @@ module.exports = function(grunt){
 		banner: '' +
 		'\/*!***************************************************\n' +
 		' * -\n' +
-		' *      Copyright (c) <%= year %>, <%= pkg.author %>\n' +
+		' *      Copyright (c) <%= year %>, <%= pkg.authorString %>\n' +
 		' *           All Rights Reserved\n' +
 		' *\n' +
 		' *      App: <%= pkg.name %>\n' +
@@ -320,12 +324,13 @@ module.exports = function(grunt){
 						{
 							pattern: /(\/\*([\s\S]*?)\*\/|\/\/(.*)$)/gmi,
 							replacement: function(match, comment, content){
-								var author = grunt.config().pkg.author;
+								var cfg = grunt.config();
+								var pkg = cfg.pkg;
 								if(typeof content !== "string"){
 									return comment;
 								}
 								content = content.toLowerCase();
-								if(content.indexOf(author.toLowerCase()) > -1 &&
+								if(content.indexOf(pkg.authorString.toLowerCase()) > -1 &&
 									(
 										content.indexOf('copyright') > -1 ||
 										content.indexOf('license') > -1
@@ -353,12 +358,12 @@ module.exports = function(grunt){
 							pattern: /(\/\*([\s\S]*?)\*\/|\/\/(.*)$)/gmi,
 							replacement: function(match, comment, content){
 								var cfg = grunt.config();
-								var author = cfg.pkg.author;
+								var pkg = cfg.pkg;
 								if(typeof content !== "string"){
 									return comment;
 								}
 								content = content.toLowerCase();
-								if(content.indexOf(author.toLowerCase()) > -1 &&
+								if(content.indexOf(pkg.authorString.toLowerCase()) > -1 &&
 									(
 										content.indexOf('copyright') > -1 ||
 										content.indexOf('license') > -1
