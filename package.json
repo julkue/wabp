@@ -15,7 +15,10 @@
   ],
   "license": "MIT",
   "repository": "julmot/jmBoilerplate",
-  "author": "Julian Motz",
+  "author": {
+    "name": "Julian Motz",
+    "url": "https://github.com/julmot"
+  },
   "dependencies": {},
   "devDependencies": {
     "almond": "~0.3",
