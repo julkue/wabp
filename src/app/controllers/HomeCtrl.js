@@ -7,7 +7,7 @@
  *****************************************************/
 (function(global){
 	define([
-		"app",
+		"app"
 	], function (app) {
 		"use strict";
 		app.controller("HomeCtrl", [
