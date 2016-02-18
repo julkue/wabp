@@ -11,6 +11,7 @@
 [![Build Status](https://img.shields.io/travis/julmot/jmBoilerplate/master.svg?style=flat-square)](https://travis-ci.org/julmot/jmBoilerplate)
 [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?style=flat-square)](https://github.com/julmot/jmBoilerplate)
 [![Version](https://img.shields.io/bower/v/jmboilerplate.svg?label=version&style=flat-square)](https://github.com/julmot/jmBoilerplate/releases)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/julmot/jmBoilerplate/master/LICENSE)
 
 **A kickstarter boilerplate for web projects.**
 
@@ -27,229 +28,33 @@
   - HTML minification
   - ZIP generation
 - Deployment tasks (local and FTP)
-- Project structure for scalable web applications
 - Simply to integrate other components like Bootstrap or Foundation
 - Optionally including browser detection and fallback messages 
   for unsupported browsers
 
-## 2. Getting started
+## 2. Installation
 
 _Requirements: [NodeJS](https://nodejs.org/) including npm and
 [Bower](http://bower.io/#install-bower) as well as 
 [Compass](http://compass-style.org/install/) installed._
 
-### 2.1a Quickstart
-
-**Use the [jmBoilerplate generator](https://github.com/julmot/generator-jmboilerplate)
-to setup your boilerplate.**
-
-Finally run ``$ grunt dev``. Now open the application in your browser via
-the `file:///`-protocol or the localhost URL that has been printed to the
-console, as in this example: `http://localhost:8000`.
-
-### 2.1b Manual setup
-
-1. Download this repository using one of these options:
-   - Run ``$ git clone https://github.com/julmot/jmBoilerplate/``
-   - [Download](https://github.com/julmot/jmBoilerplate/archive/master.zip) it as zip
-2. If you want to use jmBoilerplate without angular, open the
-   [no-angular branch](https://github.com/julmot/jmBoilerplate/tree/no-angular) and
-   follow the steps inside README.md
-3. In the projects root directory run ``$ npm install`` and  ``$ bower install``
-4. Finally, run ``$ grunt dev``
-5. Now open the application in your browser via
-   the `file:///`-protocol or the localhost URL that has been printed to the
-   console, as in this example: `http://localhost:8000`
+- Run the [jmBoilerplate generator](https://github.com/julmot/generator-jmboilerplate)
+  to customize your boilerplate
+- Run ``$ grunt dev``
+- Finally open the application in your browser via
+  the `file:///`-protocol or the localhost URL that has been printed to the
+  console, as in this example: `http://localhost:8000`.
 
 Happy hacking!
 
 _Tip: You can forward your local server port to e.g. 
 [Android devices](https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging)_
 
-## 3. Project structure
-
-### 3.1a Project structure with AngularJS
-
-```
-jmBoilerplate/
-|-- src/
-|   |-- app/
-|   |   |-- controllers/
-|   |   |-- directives/
-|   |   |-- factories/
-|   |   |-- filters/
-|   |   |-- services/
-|   |   |-- providers/
-|   |   |-- app.js
-|   |   |-- config.js
-|   |   |-- main.js
-|   |   |-- routes.js
-|   |-- assets/
-|   |   |-- images/
-|   |   |-- fonts/
-|   |-- resources/
-|   |-- styles/
-|       |-- _base.scss
-|       |-- _functions.scss
-|       |-- _mixins.scss
-|       |-- _settings.scss
-|       |-- _sprites.scss
-|       |-- app.scss
-|-- node_modules/
-|-- vendor/
-|-- .bowerrc
-|-- .gitignore
-|-- .travis.yml
-|-- bower.json
-|-- Gruntfile.js
-|-- index.html
-|-- jmBoilerplate-version
-|-- package.json
-|-- README.md
-```
-
-### 3.1b Project structure without AngularJS
-
-```
-jmBoilerplate/
-|-- src/
-|   |-- app/
-|   |   |-- app.js
-|   |   |-- main.js
-|   |-- assets/
-|   |   |-- images/
-|   |   |-- fonts/
-|   |-- resources/
-|   |-- styles/
-|       |-- _base.scss
-|       |-- _functions.scss
-|       |-- _mixins.scss
-|       |-- _settings.scss
-|       |-- _sprites.scss
-|       |-- app.scss
-|-- node_modules/
-|-- vendor/
-|-- .bowerrc
-|-- .gitignore
-|-- .travis.yml
-|-- bower.json
-|-- Gruntfile.js
-|-- index.html
-|-- jmBoilerplate-version
-|-- package.json
-|-- README.md
-```
-
-### 3.2 Project structure explanation
-
-Step by step:
-- src/
-  - This is where your applications source code lives
-- src/app
-  - Define your business logic here. This includes controllers,
-    routing, configuration and anything else that is JS-based. Have a look
-    at the containing files to see how they are working.
-    
-    Note: The structure is up to you. If you want to use module-folders
-    instead of functionality-folders that is your choice.
-    But, for most projects using folders like:
-    
-    ```
-    src/app/
-    |-- controllers/
-    |-- directives/
-    |-- ...
-    ```
-    
-    is enough and less complicated than
-    
-    ```
-    src/app/
-    |-- module1
-        |-- controllers/
-        |-- filters/
-        |-- ...
-    |-- module2
-        |-- controllers/
-        |-- filters/
-        |-- ...
-    ```
-    
-    If you want to change this structure, just change the file
-    location in "main.js".
-- src/assets
-  - Your static assets like images and fonts live here. You can use them in the styles.
-- src/resources
-  - This is optional and may be needed in some applications.
-    Normally this includes all application based resources
-    that are not assets, like translation-files or database
-    files that will be used from inside the app.
-- src/styles
-  - Your styling will go in here. The main file that will
-    be compiled from the build process is "app.scss". This file
-    includes the "_base.scss" (Note: all include files will start
-    with an underscore. This is a SCSS convention). The "_base.scss"
-    imports all dependencies including the settings, functions, mixins
-    and maybe vendor css/scss.
-    The "_sprites.scss" will be generated by the build process and is
-    only necessary to include from the "_base.scss".
-    
-    If you are interested in the files in detail have a look into it.
-- node_modules/
-  - Contains all modules that are necessary for the building process. Therefore
-    it is only necessary for development purposes.
-- vendor/
-  - Contains your vendor libraries like jQuery, RequireJS, AngularJS, ...! They
-    will be loaded into this directory with "Bower" (``$ bower install`` or ``$ bower update``).
-    Add dependencies into "bower.json"!
-- .bowerrc
-  - Just an internal file to configure Bower.
-- .travis.yml
-  - Travis CI configuration.
-- .gitignore
-  - A list of files that should be ignored by Git.
-- bower.json
-  - This file is necessary to work with Bower. Also, it contains all the
-    metadata of your project if you want to publish and register it to the
-    Bower database.
-- Gruntfile.js
-  - The main file - containing all grunt tasks.
-- index.html
-  - The applications index file. You can rename it or create multiple HTML files.
-    All HTML files will be included in the build.
-- jmBoilerplate-version
-  - This file gives you information about the installed jmBoilerplate
-    version. If you want to update jmBoilerplate, you can check the version 
-    inside this file against the current version.
-- package.json
-  - This is necessary for the build process. Also, it contains
-    all the metadata of your project (like "bower.json"). Note: 
-     - All the contributors that are listed in here will be included in the
-       banner (copyright header) in your compiled js, css and html files.
-     - Also, this file can contain a list of browsers that your application supports.
-       If so, it will show a fallback message if the user has opened your
-       application with a deprecated or unsupported browser.
-- README.md
-  - Project description
-
-## 4. Grunt tasks
+## 3. Grunt tasks
 The boilerplate has tasks for different approaches:
 
-### 4.1 Dev build
+### 3.1 Dev build
 The build for development. Run it with `$ grunt dev`.
-
-In the background, a folder "/build" will be created. It will contain a subfolder
-"css" with your "app.css" inside. If you have not disabled livereload, it will
-track any changes in your application and re-compile on file changes. Cool, isn't it?
-On top, it allows you to generate [sprites](http://www.w3schools.com/css/css_image_sprites.asp).
-You can use for example retina sprites (@2x) inside an SCSS file with:
-
-```scss
-@include retina-sprite($my-icon);
-```
-
-Have a look at "_sprites.scss" inside "src/styles" for detailed usage information about sprites
-(after running your first build).
 
 **Options:**
 
@@ -263,37 +68,10 @@ Have a look at "_sprites.scss" inside "src/styles" for detailed usage informatio
 
 _Note: Options can be passed like `$ grunt dev --option=value`._
 
-### 4.2 Prod build
-The build for production (dist, compile). Run it with `$ grunt prod`.
+Learn more about this task at the [wiki](https://github.com/julmot/jmBoilerplate/wiki/Dev-build).
 
-In production, all JavaScript files will be combined and compressed into a single
-"app.min.js"-file. For this, the "RequireJS Optimizer" will be used. Also, it will
-compile your styles into a single "app.min.css"-file.
-If you have not disabled it, sprites will be generated and HTML minification be done.
-Your production app will be generated with all assets, resources, js and css into 
-"/dist" (will be created if it does not exist). If you want, a zip can be generated too.
-
-In case you have a limited list of supported browsers for your application, you
-can define this list in the package.json (e.g. like in this repository).
-Once you have defined it, a file "fallback.js" will be created in the output of
-your production build.
-This file will check the user agent against the list of supported browsers and
-will show a system dialog with your custom error message if it does not match.
-The error message should be available in an element with id `browserFallback`, e.g. div.
-All <br>-tags will be converted to javascript linebreaks for the system dialog.
-If you don't need this functionality, you can delete the `supportedBrowsers` 
-element in the package.json, the fallback.js file from within src/app and the
-detectjs-dependency inside bower.json. This feature was built to give users
-information whether the application was not optimized for the used browser.
-Note: The [generator](https://github.com/julmot/generator-jmboilerplate) can also
-handle this for you.
-
-A header (copyright notice) will be prefixed to each generated file. It will
-contain the author, app name, app version, build time, contributors and a
-copyright year. All informations will be loaded from package.json.
-The copyright year will be the current year, but if
-you want a custom one you can set the property `copyrightYear` in
-[package.json](https://github.com/julmot/jmBoilerplate/blob/master/package.json#L43).
+### 3.2 Prod build
+The build for production. Run it with `$ grunt prod`.
 
 **Options:**
 
@@ -306,7 +84,9 @@ you want a custom one you can set the property `copyrightYear` in
 
 _Note: Options can be passed like `$ grunt prod --option=value`._
 
-### 4.3 Local deployment
+Learn more about this task at the [wiki](https://github.com/julmot/jmBoilerplate/wiki/Prod-build).
+
+### 3.3 Local deployment
 Deploy the generated output to a local target. Run it with `$ grunt deploy-local`.
 
 **Options:**
@@ -318,7 +98,7 @@ Deploy the generated output to a local target. Run it with `$ grunt deploy-local
 
 _Note: Options can be passed like `$ grunt deploy-local --option=value`._
 
-### 4.4 FTP deployment
+### 3.4 FTP deployment
 Deploy the generated output to a FTP target. Run it with `$ grunt deploy-ftp`.
 
 **Options:**
@@ -334,10 +114,17 @@ Deploy the generated output to a FTP target. Run it with `$ grunt deploy-ftp`.
 
 _Note: Options can be passed like `$ grunt deploy-ftp --option=value`._
 
-### 4.5 Version update
-If you want to update the version of your app you can simply call
-`$ grunt version-update --target=YourVersion`. This will change the version in 
-bower.json and package.json.
+### 3.5 Version update
+Update the version of your app. Will change the version in `bower.json` and `package.json`.  
+Run it with `$ grunt version-update`.
+
+**Options:**
+
+| Option | Type   | Default | Optional | Description                      |
+|--------|--------|---------|----------|----------------------------------|
+| target | string | none    | false    | The version target, e.g. `1.0.0` |
+
+_Note: Options can be passed like `$ grunt deploy-ftp --option=value`._
 
 ___
 
