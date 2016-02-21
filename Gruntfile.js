@@ -871,7 +871,7 @@ module.exports = function(grunt){
 				'.ftppass',
 				'{'
 					+ '"' + grunt.option('host') + '": {' +
-						'"username": "' + grunt.option('user') + '",' +
+						'"username": "' + grunt.option('username') + '",' +
 						'"password": "' + grunt.option('password') + '"' +
 					'}' +
 				'}'
