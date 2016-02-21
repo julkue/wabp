@@ -87,7 +87,8 @@ _Note: Options can be passed like `$ grunt prod --option=value`._
 Learn more about this task at the [wiki](https://github.com/julmot/jmBoilerplate/wiki/Prod-build).
 
 ### 3.3 Local deployment
-Deploy the generated output to a local target. Run it with `$ grunt deploy-local`.
+Deploy the generated output to a local target. Run it with `$ grunt deploy-local`.  
+This assumes that you have already ran the production build.
 
 **Options:**
 
@@ -99,7 +100,8 @@ Deploy the generated output to a local target. Run it with `$ grunt deploy-local
 _Note: Options can be passed like `$ grunt deploy-local --option=value`._
 
 ### 3.4 FTP deployment
-Deploy the generated output to a FTP target. Run it with `$ grunt deploy-ftp`.
+Deploy the generated output to a FTP target. Run it with `$ grunt deploy-ftp`.  
+This assumes that you have already ran the production build.
 
 **Options:**
 
