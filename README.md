@@ -11,7 +11,7 @@
 [![Build Status](https://img.shields.io/travis/julmot/jmBoilerplate/master.svg?style=flat-square)](https://travis-ci.org/julmot/jmBoilerplate)
 [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?style=flat-square)](https://github.com/julmot/jmBoilerplate)
 [![Version](https://img.shields.io/bower/v/jmboilerplate.svg?label=version&style=flat-square)](https://github.com/julmot/jmBoilerplate/releases)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/julmot/jmBoilerplate/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/julmot/jmBoilerplate/master/LICENSE)
 
 **A kickstarter boilerplate for web projects.**
 
