@@ -1,8 +1,8 @@
 /******************************************************
  * jmBoilerplate
  * Copyright (c) 2015–2016, Julian Motz
- * For the full copyright and license information, 
- * please view the LICENSE file that was distributed 
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed
  * with this source code.
  *****************************************************/
 // detect.js will be included here (do not remove the comment)
@@ -58,16 +58,11 @@
 			// Localstorage is not available.
 			// Continue showing the message
 		}
-		
+
 		// Define fallback message
 		var text = "You are using an unsupported browser. Please update your " +
 				   "browser version or switch to a different browser to use " +
 				   "all features of this application.";
-		// Replace line-breaks to JS-alert line-breaks
-		text = text.replace(/(\r\n|\n|\r|\t)/gm,"")
-					.replace(/<br>/gim, "\n")
-					.replace(/<br\/>/gim, "\n")
-					.replace(/<br \/>/gim, "\n");
 		alert(text);
 		if(typeof console === "object"){
 			console.warn(text);
