@@ -19,6 +19,10 @@
     "name": "Julian Motz",
     "url": "https://github.com/julmot"
   },
+  "contributors": [{
+    "name": "Julian Motz",
+    "url": "https://github.com/julmot"
+  }],
   "dependencies": {},
   "devDependencies": {
     "almond": "~0.3",
