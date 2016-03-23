@@ -1,87 +1,33 @@
 {
-  "name": "jmBoilerplate",
-  "version": "1.0.3",
-  "description": "A kickstarter boilerplate for web projects",
-  "homepage": "https://github.com/julmot/jmBoilerplate",
-  "keywords": [
-    "jmBoilerplate",
-    "boilerplate",
-    "html",
-    "framework",
-    "web",
-    "build",
-    "angularjs",
-    "ng"
-  ],
+  "name": "generator-wabp",
+  "version": "2.0.0",
+  "description": "Generator for wabp – Web App Boilerplate",
+  "homepage": "https://github.com/julmot/wabp",
+  "repository": "julmot/generator-wabp",
+  "bugs": {
+    "url": "https://github.com/julmot/wabp/issues"
+  },
   "license": "MIT",
-  "repository": "julmot/jmBoilerplate",
   "author": {
     "name": "Julian Motz",
     "url": "https://github.com/julmot"
   },
-  "contributors": [{
-    "name": "Julian Motz",
-    "url": "https://github.com/julmot"
-  }],
-  "dependencies": {},
-  "devDependencies": {
-    "almond": "~0.3",
-    "connect-livereload": "^0.5",
-    "grunt": "^0.4",
-    "grunt-banner": "^0.6",
-    "grunt-concurrent": "^2.0.3",
-    "grunt-contrib-clean": "~1",
-    "grunt-contrib-compass": "~1",
-    "grunt-contrib-compress": "~1",
-    "grunt-contrib-connect": "~1",
-    "grunt-contrib-copy": "~1",
-    "grunt-contrib-htmlmin": "~1",
-    "grunt-contrib-rename": "0.0",
-    "grunt-contrib-requirejs": "~1",
-    "grunt-contrib-uglify": "~1",
-    "grunt-contrib-watch": "~1",
-    "grunt-ftp-deploy": "^0.1",
-    "grunt-spritesmith": "^6.0",
-    "grunt-string-replace": "^1.2",
-    "matchdep": "^1.0"
+  "keywords": [
+    "yeoman-generator",
+    "wabp",
+    "generator-wabp",
+    "wabp-generator"
+  ],
+  "files": [
+    "app"
+  ],
+  "main": "app/index.js",
+  "dependencies": {
+    "chalk": "^1",
+    "js-beautify": "^1.6",
+    "username": "^2",
+    "yeoman-generator": "^0",
+    "yosay": "^1"
   },
-  "copyrightYear": "2015–2016",
-  "supportedBrowsers": {
-    "IE": {
-      "version": {
-        "from": 9,
-        "till": 11
-      }
-    },
-    "Edge": {
-      "version": {
-        "from": 12
-      }
-    },
-    "Firefox": {
-      "version": {
-        "from": 41
-      }
-    },
-    "Chrome": {
-      "version": {
-        "from": 46
-      }
-    },
-    "Chrome Mobile": {
-      "version": {
-        "from": 46
-      }
-    },
-    "Safari": {
-      "version": {
-        "from": 8
-      }
-    },
-    "Mobile Safari": {
-      "version": {
-        "from": 8
-      }
-    }
-  }
+  "devDependencies": {}
 }

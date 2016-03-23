@@ -1,0 +1,40 @@
+/*!***************************************************
+ * wabp
+ * https://github.com/julmot/wabp
+ * Copyright (c) 2015–2016, Julian Motz
+ * Released under the MIT license https://git.io/vadUA
+ *****************************************************/
+
+/**
+ * App Styles
+ */
+@import "base";
+* {
+    margin:0;
+    padding:0;
+}
+body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:$appBg;
+    color:$appColor;
+    font-size:$appFontSize;
+    line-height:$appLineHeight;
+    font-family:$primaryFont;
+}
+.home{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:320px;
+    height:200px;
+    margin:-100px 0 0 -160px;
+    text-align:center;
+    color:$homeColor;
+    background:$homeBg;
+    font-size:$homeFontSize;
+    line-height:$homeLineHeight;
+}

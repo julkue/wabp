@@ -1,0 +1,19 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.1.0",
+  "description": "<%= appDescription %>",
+  "license": "<%= appLicense %>",
+  "keywords": [
+    "<%= appName %>",
+    "wabp"
+  ],
+  "authors": [
+    "<%= appAuthor %>"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "requirejs": "~2.1",
+    "jquery": ">1.10",
+    "darcyclarke-detectjs": "*"
+  }
+}

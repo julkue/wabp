@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ $root.language }}" data-ng-controller="AppCtrl as app">
+<!--
+/*!***************************************************
+ * <%= appName %>
+ * Copyright (c) <%= new Date().getFullYear() %>, <%= appAuthor %>
+ * Released under the <%= appLicense %> license
+ *****************************************************/
+-->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
+    <title data-ng-bind="'<%= appName %> | ' + $root.title"><%= appName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="robots" content="index, follow">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="stylesheet" type="text/css" href="build/css/app.css">
+</head>
+<body>
+    <div data-ng-view></div>
+    <div id="loading">
+        <div id="spinner-container">
+            <div id="spinner">
+                <i class="fa fa-spinner fa-pulse fa-4x"></i>
+            </div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="home.html">
+        <div class="homeCtrl" data-ng-controller="HomeCtrl as home">
+            <span data-translate="home:welcome"></span> – <%= appName %>!
+        </div>
+    </script>
+    <script type="text/ng-template" id="404.html">
+        <div class="nothingFound">
+            Whooops - Nothing here!
+        </div>
+    </script>
+    <script src="vendor/requirejs/require.js" data-main="src/app/main" async></script>
+</body>
+</html>

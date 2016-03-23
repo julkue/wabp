@@ -1,0 +1,28 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.1.0",
+  "description": "<%= appDescription %>",
+  "license": "<%= appLicense %>",
+  "keywords": [
+    "<%= appName %>",
+    "wabp"
+  ],
+  "authors": [
+    "<%= appAuthor %>"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "requirejs": "~2.1",
+    "jquery": ">1.10",
+    "angular": "~1",
+    "angular-route": "~1",
+    "angular-translate": "~2.7",
+    "angular-translate-loader-static-files": "~2.7",
+    "angular-ui-notification": "~0.0",
+    "fontawesome": "~4.4",
+    "darcyclarke-detectjs": "*"
+  },
+  "resolutions": {
+    "angular": "~1"
+  }
+}

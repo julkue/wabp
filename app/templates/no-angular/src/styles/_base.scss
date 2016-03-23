@@ -1,0 +1,40 @@
+/*!***************************************************
+ * wabp
+ * https://github.com/julmot/wabp
+ * Copyright (c) 2015–2016, Julian Motz
+ * Released under the MIT license https://git.io/vadUA
+ *****************************************************/
+
+/**
+ * Import compass libraries
+ * and internal libs and settings
+ */
+@import "compass";
+@import "compass/css3/selection";
+@import "compass/utilities/sprites";
+@import "mixins";
+@import "functions";
+@import "settings";
+@import "sprites";
+
+/**
+ * Fonts
+ */
+$primaryFont: "Lato Regular";
+@include font-face(
+    $primaryFont,
+    font-files(
+        "lato-regular.ttf",
+        "lato-regular.woff",
+        "lato-regular.woff2",
+        "lato-regular.svg"
+    ),
+    "lato-regular.eot"
+);
+
+/**
+ * Import vendor libs
+ * (path starting from styles-folder)
+ * Load any dependency here, like Fontawesome, Bootstrap, etc.
+ * The paths will be automatically corrected in the production build.
+ */

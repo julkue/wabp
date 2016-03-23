@@ -1,0 +1,8 @@
+vendor
+dist
+build
+node_modules
+.sass-cache
+TODO
+_sprites.scss
+sprites*.png

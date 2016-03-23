@@ -1,0 +1,24 @@
+/*!***************************************************
+ * wabp
+ * https://github.com/julmot/wabp
+ * Copyright (c) 2015–2016, Julian Motz
+ * Released under the MIT license https://git.io/vadUA
+ *****************************************************/
+
+/**
+ * Color settings
+ */
+$appBg: #101314;
+$appColor: #ecedee;
+$appLoaderBg: #34495e;
+$appLoaderColor: #fff;
+$homeCtrlColor: $appColor;
+$homeCtrlBg: transparent;
+
+/**
+ * Typography settings
+ */
+$appFontSize: 16px;
+$appLineHeight: 120%;
+$homeCtrlFontSize: 48px;
+$homeCtrlLineHeight: $appLineHeight;

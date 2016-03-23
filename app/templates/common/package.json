@@ -1,0 +1,35 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.1.0",
+  "description": "<%= appDescription %>",
+  "license": "<%= appLicense %>",
+  "author": "<%= appAuthor %>",
+  "contributors": [{
+	"name": "<%= appAuthor %>"
+  }],
+  "dependencies": {},
+  "devDependencies": {
+    "almond": "~0.3",
+    "connect-livereload": "^0.5",
+    "grunt": "^0.4",
+    "grunt-banner": "^0.6",
+    "grunt-concurrent": "^2.0.3",
+    "grunt-contrib-clean": "~1",
+    "grunt-contrib-compass": "~1",
+    "grunt-contrib-compress": "~1",
+    "grunt-contrib-connect": "~1",
+    "grunt-contrib-copy": "~1",
+    "grunt-contrib-htmlmin": "~1",
+    "grunt-contrib-rename": "0.0",
+    "grunt-contrib-requirejs": "~1",
+    "grunt-contrib-uglify": "~1",
+    "grunt-contrib-watch": "~1",
+    "grunt-ftp-deploy": "^0.1",
+    "grunt-spritesmith": "^6.0",
+    "grunt-string-replace": "^1.2",
+    "matchdep": "^1.0"
+  }
+  <% if (typeof supportedBrowsers === 'string') { %>
+	,"supportedBrowsers": <%- supportedBrowsers -%>
+  <% } %>
+}
