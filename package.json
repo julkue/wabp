@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "Generator for wabp – Web App Boilerplate",
   "homepage": "https://github.com/julmot/wabp",
-  "repository": "julmot/generator-wabp",
+  "repository": "julmot/wabp",
   "bugs": {
     "url": "https://github.com/julmot/wabp/issues"
   },
