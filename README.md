@@ -132,7 +132,7 @@ _Note: Options can be passed like `$ grunt deploy-ftp --option=value`._
 
 
 [dependency-status-image]: https://www.versioneye.com/user/projects/55f92f283ed89400170006fb/badge.svg?style=flat
-[npm-version-image]: https://img.shields.io/npm/v/generator-wabp.svg?style=flat-square
+[npm-version-image]: https://img.shields.io/npm/v/generator-wabp.svg?style=flat-square&label=version
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 
 [dependency-status]: https://www.versioneye.com/user/projects/55f92f283ed89400170006fb
