@@ -163,6 +163,11 @@ module.exports = yeoman.Base.extend({
             this.destinationPath("index.html"),
             this.props
         );
+        this.fs.copyTpl(
+            this.templatePath(folder + "/bower.json"),
+            this.destinationPath("bower.json"),
+            this.props
+        );
     },
     finishing: function () {
         this.log(chalk.green.bold(
