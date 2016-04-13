@@ -169,6 +169,11 @@ module.exports = yeoman.Base.extend({
             this.props
         );
     },
+    deletingBrowserFallback: function(){
+        if(!this.props.browserFallback) {
+            this.fs.delete(this.destinationPath("src/app/fallback.js"));
+        }
+    },
     finishing: function () {
         this.log(chalk.green.bold(
             '\nRead the documentation at github.com/julmot/wabp ' +
