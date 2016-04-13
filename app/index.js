@@ -138,13 +138,6 @@ module.exports = yeoman.Base.extend({
             this.props
         );
     },
-    beautifyPackageJSON: function () {
-        this.fs.write("package.json", beautify(this.fs.read("package.json"), {
-            "indent_size": 2,
-            "preserve_newlines": false,
-            "jslint_happy": true
-        }));
-    },
     loadingDependentFiles: function () {
         var folder = "no-angular";
         if(this.props.angularJS) {
@@ -172,7 +165,20 @@ module.exports = yeoman.Base.extend({
     deletingBrowserFallback: function(){
         if(!this.props.browserFallback) {
             this.fs.delete(this.destinationPath("src/app/fallback.js"));
+            var json = JSON.parse(this.fs.read("bower.json"));
+            delete json["devDependencies"]["darcyclarke-detectjs"];
+            this.fs.write("bower.json", JSON.stringify(json));
         }
+    },
+    beautifying: function () {
+        var files = ["bower.json", "package.json"];
+        files.forEach(function(file){
+            this.fs.write(file, beautify(this.fs.read(file), {
+                "indent_size": 2,
+                "preserve_newlines": false,
+                "jslint_happy": true
+            }));
+        }.bind(this));
     },
     finishing: function () {
         this.log(chalk.green.bold(
