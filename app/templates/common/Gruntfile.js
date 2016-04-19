@@ -440,6 +440,10 @@ module.exports = function (grunt) {
                                 // Read file contents
                                 var fc = grunt.file.read(resource);
 
+                                // Read font face declarations to determine
+                                // correct destination folder
+                                var fontMatches = fc.match(/@font-face[\s]?{[^}]*/gmi);
+
                                 // Search for assets in the CSS (fonts, images)
                                 // and copy them to the dist folder.
                                 // Also renormalize the path
@@ -449,32 +453,20 @@ module.exports = function (grunt) {
                                     // Replace ' and " in the url()-statement
                                     // Generate file variables
                                     var filePathQuery = filePath.replace(/["']/gmi, '');
-                                    var filePath = filePathQuery.split('?')[0];
+                                    var filePath = filePathQuery.split('?')[0].replace(/#.*$/, '');
                                     var query = filePathQuery.split('?')[1];
                                     if(query != '') query = '?' + query;
                                     var path = resource.substring(0, resource.lastIndexOf(
                                         "/"));
                                     var filename = filePath.replace(/^.*[\\\/]/, '');
-                                    var a = filename.split(".");
-                                    if(a.length === 1 || (a[0] === '' && a.length === 2)) {
-                                        var ext = '';
-                                    } else {
-                                        var ext = a.pop();
-                                    }
 
-                                    // Copy the resource to the dist folder
-                                    switch(ext) {
-                                    case "png":
-                                    case "gif":
-                                    case "jpg":
-                                    case "jpeg":
-                                    case "tiff":
-                                        var destFolder = "images/";
-                                        break;
-                                    default:
-                                        var destFolder = "fonts/";
-                                        break;
-                                    }
+                                    var destFolder = "images/";
+                                    fontMatches.forEach(function(match){
+                                        if(match.indexOf(filePath) > -1){
+                                            destFolder = "fonts/";
+                                        }
+                                    });
+
                                     var dest = cfg.project.dist.web + "/assets/" +
                                         destFolder + filename;
                                     var src = path + "/" + filePath;

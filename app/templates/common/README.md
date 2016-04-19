@@ -24,4 +24,4 @@ Copyright © <%= appAuthor %>
 [nodejs]: https://nodejs.org/
 [bower]: http://bower.io/#install-bower
 [compass]: http://compass-style.org/install/
-[wabp]: https://github.com/julmot/jmBoilerplate
+[wabp]: https://github.com/julmot/wabp
