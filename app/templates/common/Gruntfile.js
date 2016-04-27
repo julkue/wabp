@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         var contributor = pkg.contributors[i];
         var append = '- ' + contributor.name;
         if(pkg.contributorsBanner !== '') {
-            append = '\n *                    - ' + contributor.name;
+            append = '\n *                  - ' + contributor.name;
         }
         pkg.contributorsBanner += append;
     }
@@ -235,13 +235,13 @@ module.exports = function (grunt) {
         banner: '' +
             '\/*!***************************************************\n' +
             ' * -\n' +
-            ' *      Copyright (c) <%= year %>, <%= pkg.authorString %>\n' +
-            ' *           All Rights Reserved\n' +
+            ' *    Copyright (c) <%= year %>, <%= pkg.authorString %>\n' +
+            ' *         All Rights Reserved\n' +
             ' *\n' +
-            ' *      App: <%= pkg.name %>\n' +
-            ' *      Version: <%= pkg.version %>\n' +
-            ' *      Build time: <%= date %>\n' +
-            ' *      Contributors: <%= pkg.contributorsBanner %>\n' +
+            ' *    App: <%= pkg.name %>\n' +
+            ' *    Version: <%= pkg.version %>\n' +
+            ' *    Build time: <%= date %>\n' +
+            ' *    Contributors: <%= pkg.contributorsBanner %>\n' +
             ' * -\n' +
             ' *****************************************************\/',
         usebanner: {
