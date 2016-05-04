@@ -582,9 +582,9 @@ module.exports = function (grunt) {
         'ftp-deploy': {
             prod: {
                 auth: {
-                    host: grunt.option('host'),
-                    port: grunt.option('port') || 21,
-                    authKey: grunt.option('host')
+                    host: process.env.FTP_HOST || grunt.option("host"),
+                    port: process.env.FTP_PORT || grunt.option("port") || 21,
+                    authKey: process.env.FTP_HOST || grunt.option("host")
                 },
                 src: '<%= project.dist.web %>',
                 dest: grunt.option('dest') || '/',
@@ -746,15 +746,19 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('deploy-ftp', 'FTP Deployment', function () {
         grunt.log.subhead(grunt.config().banner);
-        var host = grunt.option('host');
+        var host, username, password;
+        host = process.env.FTP_HOST || grunt.option("host");
+        username = process.env.FTP_USERNAME || grunt.option("username");
+        password = process.env.FTP_PASSWORD || grunt.option("password");
+
         if(typeof host === 'string' && host != '') {
             // create .ftppass file (needed by the task ftp-deploy)
             // contains the username and password for the ftp connection
             grunt.file.write(
                 '.ftppass',
-                '{' + '"' + grunt.option('host') + '": {' +
-                '"username": "' + grunt.option('username') + '",' +
-                '"password": "' + grunt.option('password') + '"' +
+                '{' + '"' + host + '": {' +
+                '"username": "' + username + '",' +
+                '"password": "' + password + '"' +
                 '}' +
                 '}'
             );

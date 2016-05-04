@@ -115,6 +115,10 @@ This assumes that you have already ran the production build.
 | dest     | string | "/"     | true     | The destination path on the FTP server                                                                         |
 | exclude  | string | none    | true     | A list of files to exclude. Use a "," to separate multiple files. Example: `--exclude="index.html, file.txt"`  |
 
+_Tip: You can also use this task with environment variables. Just set
+`FTP_USERNAME`, `FTP_PASSWORD`, `FTP_HOST` and optionally `FTP_PORT`.
+Environment variables will have higher priority than task arguments._
+
 _Note: Options can be passed like `$ grunt deploy-ftp --option=value`._
 
 ### 3.5 Version update
