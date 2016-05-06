@@ -74,12 +74,13 @@ The build for production. Run it with `$ grunt prod`.
 
 **Options:**
 
-| Option           | Type   | Default | Description                                                                                                                                                                                                                                  |
-|------------------|--------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sprites          | bool   | true    | Specify `false` if your application does not contain sprite images                                                                                                                                                                           |
-| minifyHTML       | bool   | true    | If you want to disable HTML minification                                                                                                                                                                                                     |
-| minifyHTMLIgnore | string | ""      | If you just want to prevent HTML minification for specific files and not generally you can use this option. For a single file use `--minifyHTMLIgnore=myfile.html` and for multiple files `--minifyHTMLIgnore={myfile.html,secondFile.html}` |
-| zip              | bool   | true    | If you want to generate a zip of the dist output                                                                                                                                                                                             |
+| Option           | Type    | Default | Description                                                                                                                                                                                                                                  |
+|------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sprites          | bool    | true    | Specify `false` if your application does not contain sprite images                                                                                                                                                                           |
+| minifyHTML       | bool    | true    | If you want to disable HTML minification                                                                                                                                                                                                     |
+| minifyHTMLIgnore | string  | ""      | If you just want to prevent HTML minification for specific files and not generally you can use this option. For a single file use `--minifyHTMLIgnore=myfile.html` and for multiple files `--minifyHTMLIgnore={myfile.html,secondFile.html}` |
+| absolutePaths    | boolean | false   | Whether paths to js, css, resources and image files should be generated relative (`./`) or absolute (`/`)                                                                                                                                    |
+| zip              | bool    | true    | If you want to generate a zip of the dist output                                                                                                                                                                                             |
 
 _Note: Options can be passed like `$ grunt prod --option=value`._
 

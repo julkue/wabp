@@ -410,15 +410,50 @@ module.exports = function (grunt) {
                 options: {
                     replacements: [{
                             pattern: /<script[^>]+?src=\"[^]+?require\.js\"[^]+?><\/script>/gmi,
-                            replacement: '<script type="text/javascript" src="./js/app.min.js"></script>'
+                            replacement: (function(){
+                                var prefix = '<script type="text/javascript" src="';
+                                var suffix = '/js/app.min.js"></script>';
+                                if(grunt.option("absolutePaths")){
+                                    return prefix + suffix;
+                                } else {
+                                    return prefix + "." + suffix;
+                                }
+                            })()
                         }, {
                             pattern: /<link[^>]+?href=\"[^><]+?app\.css\"[^]+?/gmi,
-                            replacement: '<link rel="stylesheet" type="text/css" href="./css/app.min.css">'
+                            replacement: (function(){
+                                var prefix = '<link rel="stylesheet" type="text/css" href="';
+                                var suffix = '/css/app.min.css">';
+                                if(grunt.option("absolutePaths")){
+                                    return prefix + suffix;
+                                } else {
+                                    return prefix + "." + suffix;
+                                }
+                            })()
                         },
                         // Resources
                         {
                             pattern: /src\/resources/gm,
-                            replacement: "resources/"
+                            replacement: (function(){
+                                var suffix = "/resources";
+                                if(grunt.option("absolutePaths")){
+                                    return suffix;
+                                } else {
+                                    return "." + suffix;
+                                }
+                            })()
+                        },
+                        // Images
+                        {
+                            pattern: /src\/assets\/images/gm,
+                            replacement: (function(){
+                                var suffix = "/assets/images";
+                                if(grunt.option("absolutePaths")){
+                                    return suffix;
+                                } else {
+                                    return "." + suffix;
+                                }
+                            })()
                         }
                     ]
                 }
