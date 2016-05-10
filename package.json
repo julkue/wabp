@@ -1,6 +1,6 @@
 {
   "name": "generator-wabp",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Generator for wabp – Web App Boilerplate",
   "homepage": "https://github.com/julmot/wabp",
   "repository": "julmot/wabp",
@@ -13,21 +13,21 @@
     "url": "https://github.com/julmot"
   },
   "keywords": [
-    "yeoman-generator",
     "wabp",
     "generator-wabp",
-    "wabp-generator"
+    "wabp-generator",
+    "yeoman-generator"
   ],
   "files": [
     "app"
   ],
   "main": "app/index.js",
   "dependencies": {
-    "chalk": "^1",
-    "js-beautify": "^1.6",
-    "username": "^2",
-    "yeoman-generator": "^0",
-    "yosay": "^1"
+    "chalk": "1.1.3",
+    "js-beautify": "1.6.2",
+    "username": "2.1.0",
+    "yeoman-generator": "0.23.3",
+    "yosay": "1.1.1"
   },
   "devDependencies": {}
 }

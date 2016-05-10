@@ -5,16 +5,14 @@
  * Released under the MIT license https://git.io/vadUA
  *****************************************************/
 "use strict";
-var yeoman = require("yeoman-generator");
-var yosay = require("yosay");
-var chalk = require("chalk");
-var username = require("username");
-var beautify = require("js-beautify").js_beautify;
+const yeoman = require("yeoman-generator"),
+    yosay = require("yosay"),
+    chalk = require("chalk"),
+    username = require("username"),
+    beautify = require("js-beautify").js_beautify;
 
 module.exports = yeoman.Base.extend({
     prompting: function () {
-        var done = this.async();
-
         this.log(yosay(
             "Welcome to " + chalk.red("generator-wabp") + "!"
         ));
@@ -97,9 +95,8 @@ module.exports = yeoman.Base.extend({
                 }
             });
         });
-        this.prompt(prompts, function (props) {
+        return this.prompt(prompts).then(function (props) {
             this.props = props;
-            done();
         }.bind(this));
     },
     generatingBrowserFallback: function () {
@@ -162,7 +159,7 @@ module.exports = yeoman.Base.extend({
             this.props
         );
     },
-    deletingBrowserFallback: function(){
+    deletingBrowserFallback: function () {
         if(!this.props.browserFallback) {
             this.fs.delete(this.destinationPath("src/app/fallback.js"));
             var json = JSON.parse(this.fs.read("bower.json"));
@@ -172,7 +169,7 @@ module.exports = yeoman.Base.extend({
     },
     beautifying: function () {
         var files = ["bower.json", "package.json"];
-        files.forEach(function(file){
+        files.forEach(function (file) {
             this.fs.write(file, beautify(this.fs.read(file), {
                 "indent_size": 2,
                 "preserve_newlines": false,
